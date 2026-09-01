@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | KidsCamp</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+  
+    <!-- Google Fonts for KidsCamp Theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        heading: ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#FF6B35',
+                        secondary: '#2EC4B6',
+                        dark: '#111111',
+                        light: '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Pre-load Theme Script to prevent Dark Mode bugs during navigation -->
+    <script>
+        if (localStorage.getItem("kidscamp-theme") === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        if (localStorage.getItem("kidscamp-rtl") === "rtl") {
+            document.documentElement.setAttribute("dir", "rtl");
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-500 w-full min-h-[100dvh] overflow-hidden flex flex-col relative selection:bg-secondary selection:text-white">
+
+
+
+    <main class="flex-1 relative z-10 w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Subtle Ambient Glows -->
+        <div class="absolute top-10 left-0 w-[200px] h-[200px] sm:w-[500px] sm:h-[500px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+        <div class="absolute bottom-10 right-0 w-[200px] h-[200px] sm:w-[500px] sm:h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
+        <!-- Content -->
+        <div class="relative w-full max-w-3xl text-center">
+
+            <!-- Big 404 Illustration -->
+            <div class="relative mb-4 sm:mb-8 flex items-center justify-center">
+                <span class="font-heading font-black text-[7rem] sm:text-[10rem] lg:text-[13rem] leading-none text-transparent bg-clip-text bg-gradient-to-br from-primary via-secondary to-primary select-none">
+                    404
+                </span>
+                <!-- Floating camping icons -->
+                <i class="fa-solid fa-campground absolute -top-4 left-1/4 text-3xl sm:text-4xl text-secondary/70 -rotate-6 animate-bounce"></i>
+                <i class="fa-solid fa-mountain-sun absolute top-1/2 -right-2 sm:right-6 text-3xl sm:text-4xl text-primary/70 rotate-12"></i>
+                <i class="fa-solid fa-tree absolute -bottom-2 left-2 sm:left-8 text-3xl sm:text-4xl text-secondary/50"></i>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white mb-3 sm:mb-4">
+                Uh oh! Looks like we're <span class="text-primary">lost</span> in the woods
+            </h1>
+
+            <!-- Description -->
+            <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base lg:text-lg font-medium max-w-xl mx-auto leading-relaxed mb-8 sm:mb-10">
+                The page you're looking for couldn't be found. It may have been moved, renamed, or never existed. Let's get you back to the fun!
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+                <a href="index.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-secondary text-white font-bold text-sm sm:text-base hover:bg-[#25a99d] hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-secondary/30">
+                    <i class="fa-solid fa-house"></i> Back to Home
+                </a>
+                <a href="programs.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full border-2 border-primary text-primary font-bold text-sm sm:text-base hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300">
+                    <i class="fa-regular fa-compass"></i> Explore Programs
+                </a>
+            </div>
+
+            <!-- Helpful Links -->
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold">
+                <a href="contact.html" class="hover:text-primary transition-colors"><i class="fa-solid fa-envelope mr-1.5 text-secondary"></i>Contact Us</a>
+                <a href="schedule.html" class="hover:text-primary transition-colors"><i class="fa-solid fa-calendar-days mr-1.5 text-secondary"></i>Schedule</a>
+                <a href="safety.html" class="hover:text-primary transition-colors"><i class="fa-solid fa-shield-halved mr-1.5 text-secondary"></i>Safety</a>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Theme Toggle Sync (works because navbar.js exposes the toggle button) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkToggle = document.getElementById('darkToggle');
+            const htmlElement = document.documentElement;
+            const themeIcon = document.getElementById('darkIcon');
+            if (themeIcon) {
+                themeIcon.className = htmlElement.classList.contains('dark')
+                    ? "fa-solid fa-sun text-sm"
+                    : "fa-solid fa-moon text-sm";
+            }
+            if (darkToggle) {
+                darkToggle.addEventListener('click', () => {
+                    const isDark = htmlElement.classList.toggle("dark");
+                    localStorage.setItem("kidscamp-theme", isDark ? "dark" : "light");
+                    if (themeIcon) {
+                        themeIcon.className = isDark
+                            ? "fa-solid fa-sun text-sm"
+                            : "fa-solid fa-moon text-sm";
+                    }
+                });
+            }
+
+            const rtlToggle = document.getElementById('rtlToggle');
+            if (rtlToggle) {
+                rtlToggle.addEventListener('click', () => {
+                    const isRtl = htmlElement.getAttribute("dir") === "rtl";
+                    htmlElement.setAttribute("dir", isRtl ? "ltr" : "rtl");
+                    localStorage.setItem("kidscamp-rtl", isRtl ? "ltr" : "rtl");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

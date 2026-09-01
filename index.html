@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light"> 
+
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>KidsCamp | Summer & Activity Program</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+
+  <!-- Tailwind Configuration for Custom Theme Colors -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B35',   // Vibrant Coral Orange
+            secondary: '#2EC4B6', // Playful Turquoise
+            dark: '#111111',      // Black Text
+            light: '#FFFFFF',     // White Text
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script> 
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .font-heading {
+      font-family: 'Poppins', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .transition-theme {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    }
+
+    /* Wavy bottom for hero section */
+    .custom-shape-divider-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+    }
+
+    .custom-shape-divider-bottom .shape-fill {
+      fill: #FFFFFF;
+    }
+    
+    .dark .custom-shape-divider-bottom .shape-fill {
+      fill: #020617; /* slate-950 */
+    }
+  </style> 
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-dark dark:text-slate-200 font-sans transition-theme overflow-x-hidden"> 
+  <div id="navbar"></div>
+
+  <!-- 1. HERO SECTION -->
+  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-orange-50 dark:bg-slate-900 transition-theme">
+    
+    <!-- Background Decor -->
+    <div class="absolute top-10 left-10 w-20 h-20 bg-secondary/20 rounded-full blur-2xl z-0"></div>
+    <div class="absolute bottom-20 right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl z-0"></div>
+    
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Text Content -->
+        <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <h1 class="text-4xl sm:text-5xl xl:text-7xl font-heading font-bold text-dark dark:text-white leading-[1.1] mb-6">
+            Make This Summer <br>
+            <span class="text-primary">Unforgettable!</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 mb-8 max-w-xl font-medium leading-relaxed">
+            A fun-filled summer camp where kids explore, learn new skills, make friends & create lifelong memories in a safe environment.
+          </p>
+
+          <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto mb-10">
+            <a href="programs.html" class="flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-primary text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/30">
+              Explore Programs <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="signup.html" class="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-secondary text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-lg shadow-secondary/30 gap-2">
+              Register Now <i class="fa-solid fa-user-plus"></i>
+            </a>
+          </div>
+
+          <!-- Highlight Badges -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-6">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"><i class="fa-solid fa-users"></i></div>
+              <div class="text-sm">
+                <p class="font-bold text-dark dark:text-white">Ages 5-15</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs">For all age groups</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="text-sm">
+                <p class="font-bold text-dark dark:text-white">Safe & Secure</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs">Trained staff</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative w-full h-[400px] xl:h-[550px]">
+          <div class="absolute inset-0 rounded-[3rem] rounded-br-[10rem] overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+            <img src="images\bg1.avif" alt="Kids playing outside" class="w-full h-full object-cover">
+          </div>
+          <!-- Floating Element -->
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full flex flex-col items-center justify-center text-white font-heading font-bold text-xl shadow-xl transform rotate-12">
+            <span>Learn.</span>
+            <span>Play.</span>
+            <span>Grow.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- Wave Divider -->
+    <div class="custom-shape-divider-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+  </section>
+
+  <!-- 2. QUICK STATS SECTION -->
+  <section class="py-12 bg-secondary text-white relative z-20 -mt-2">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/20">
+        <div class="flex flex-col items-center justify-center">
+          <i class="fa-solid fa-users text-4xl mb-3"></i>
+          <h3 class="text-3xl font-heading font-bold">500+</h3>
+          <p class="text-sm uppercase tracking-wide opacity-90 mt-1">Happy Campers</p>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <i class="fa-solid fa-palette text-4xl mb-3"></i>
+          <h3 class="text-3xl font-heading font-bold">25+</h3>
+          <p class="text-sm uppercase tracking-wide opacity-90 mt-1">Activities</p>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <i class="fa-regular fa-calendar-check text-4xl mb-3"></i>
+          <h3 class="text-3xl font-heading font-bold">10+</h3>
+          <p class="text-sm uppercase tracking-wide opacity-90 mt-1">Years of Fun</p>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <i class="fa-solid fa-trophy text-4xl mb-3"></i>
+          <h3 class="text-3xl font-heading font-bold">100%</h3>
+          <p class="text-sm uppercase tracking-wide opacity-90 mt-1">Safe & Secure</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. EXCITING ACTIVITIES PREVIEW -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4 relative inline-block">
+          Exciting Activities
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium mt-6 max-w-2xl mx-auto">Explore a world of fun and learning! Check out our dedicated <a href="programs.html" class="text-secondary font-bold hover:underline">Programs Page</a> for the full list of our summer adventures.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <!-- Activity 1 -->
+        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
+            <i class="fa-solid fa-volleyball"></i>
+          </div>
+          <h3 class="font-bold text-dark dark:text-white mb-2">Sports</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Football, Basketball, Tennis </p>
+        </div>
+        
+        <!-- Activity 2 -->
+        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+          <h3 class="font-bold text-dark dark:text-white mb-2">Arts & Crafts</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Painting, DIY, Pottery & Handicrafts</p>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="font-bold text-dark dark:text-white mb-2">Coding</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Robotics, Programming & Tech</p>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
+            <i class="fa-solid fa-person-swimming"></i>
+          </div>
+          <h3 class="font-bold text-dark dark:text-white mb-2">Swimming</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Water Games, Pool Safety & Races</p>
+        </div>
+
+        <!-- Activity 5 -->
+        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 class="font-bold text-dark dark:text-white mb-2">Nature Exploration</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Outdoor Trails, Botany & Scavenger </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PAST CAMP HIGHLIGHTS SECTION -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-theme border-y border-slate-200 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+        <div>
+          <span class="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">Our Gallery</span>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-2">Past Camp Highlights</h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium">Relive the smiles, the learning, and the incredible moments from our previous summer camps!</p>
+        </div>
+        <a href="gallery.html" class="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-secondary text-secondary font-bold hover:bg-secondary hover:text-white transition-all">
+          View Full Gallery <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+        <!-- Large Featured Highlight -->
+        <div class="md:col-span-8 relative rounded-3xl overflow-hidden group h-[300px] md:h-[450px]">
+          <img src="images\img1.avif" alt="Kids enjoying summer camp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <div class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Summer 2025</div>
+            <h3 class="text-white font-heading font-bold text-2xl md:text-3xl">Grand Finale Talent Show</h3>
+            <p class="text-slate-200 text-sm mt-2 max-w-xl">Campers showcased everything they learned throughout the summer, from dramatic plays to incredible robotics demonstrations.</p>
+          </div>
+        </div>
+        
+        <!-- Smaller Highlights -->
+        <div class="md:col-span-4 flex flex-col gap-4 h-[300px] md:h-[450px]">
+          <div class="relative rounded-3xl overflow-hidden group flex-1">
+            <img src="images\img2.avif" alt="Kids painting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-5 right-5">
+              <h4 class="text-white font-bold text-lg leading-tight">Art Expo Day</h4>
+            </div>
+          </div>
+          <div class="relative rounded-3xl overflow-hidden group flex-1">
+            <img src="images\img3.avif" alt="Kids in nature" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-5 right-5">
+              <h4 class="text-white font-bold text-lg leading-tight">Forest Discovery Trek</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. MEET OUR COUNSELORS SECTION -->
+  <section class="py-24 bg-slate-50 dark:bg-slate-900 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4 relative inline-block">
+          Meet Our Counselors
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto mt-8">Caring, experienced mentors who turn every camp day into an adventure kids love.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Counselor 1 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl p-6 text-center shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <div class="relative w-28 h-28 mx-auto mb-5">
+            <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-primary">
+              <img src="images\g1.avif" alt="Sarah Mitchell" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white text-lg border-4 border-white dark:border-slate-800">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+          </div>
+          <h4 class="font-heading font-bold text-lg text-dark dark:text-white">Sarah Mitchell</h4>
+          <p class="text-primary font-semibold text-sm mb-3">Arts & Crafts Lead</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Former art teacher with 8+ years of inspiring young creatives.</p>
+          <div class="flex justify-center gap-3 text-slate-400">
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Counselor 2 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl p-6 text-center shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <div class="relative w-28 h-28 mx-auto mb-5">
+            <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-secondary">
+              <img src="images\m1.avif" alt="James Carter" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-lg border-4 border-white dark:border-slate-800">
+              <i class="fa-solid fa-volleyball"></i>
+            </div>
+          </div>
+          <h4 class="font-heading font-bold text-lg text-dark dark:text-white">James Carter</h4>
+          <p class="text-primary font-semibold text-sm mb-3">Sports & Adventure Coach</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Certified coach & outdoor enthusiast who makes fitness fun.</p>
+          <div class="flex justify-center gap-3 text-slate-400">
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Counselor 3 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl p-6 text-center shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <div class="relative w-28 h-28 mx-auto mb-5">
+            <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-primary">
+              <img src="images\g2.avif" alt="Amelia Rodriguez" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white text-lg border-4 border-white dark:border-slate-800">
+              <i class="fa-solid fa-music"></i>
+            </div>
+          </div>
+          <h4 class="font-heading font-bold text-lg text-dark dark:text-white">Amelia Rodriguez</h4>
+          <p class="text-primary font-semibold text-sm mb-3">Music & Dance Mentor</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Performing arts specialist who brings rhythm to every session.</p>
+          <div class="flex justify-center gap-3 text-slate-400">
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Counselor 4 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl p-6 text-center shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <div class="relative w-28 h-28 mx-auto mb-5">
+            <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-secondary">
+              <img src="images\m2.avif" alt="David Kim" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-lg border-4 border-white dark:border-slate-800">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+          </div>
+          <h4 class="font-heading font-bold text-lg text-dark dark:text-white">David Kim</h4>
+          <p class="text-primary font-semibold text-sm mb-3">Science & STEM Guide</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Engineer-turned-mentor making science exciting for every kid.</p>
+          <div class="flex justify-center gap-3 text-slate-400">
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. DAILY CAMP SCHEDULE SECTION -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4 relative inline-block">
+          A Day at KidsCamp
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto mt-8">Every day is packed with a perfect mix of adventure, learning & laughter — here's how it flows.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Morning -->
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center text-primary text-2xl">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-primary font-bold">09:00 – 12:00</p>
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Morning Fun</h3>
+            </div>
+          </div>
+          <ul class="space-y-4 flex-1">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span> Welcome circle & ice breakers
+            </li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span> Sports & outdoor games
+            </li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span> Creative arts & crafts
+            </li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span> Snack break
+            </li>
+          </ul>
+        </div>
+
+        <!-- Midday -->
+        <div class="bg-secondary text-white rounded-3xl p-8 shadow-2xl shadow-secondary/30 relative overflow-hidden flex flex-col h-full">
+          <i class="fa-solid fa-bullseye absolute -top-4 -right-4 text-white/10 text-8xl rotate-12"></i>
+          <div class="flex items-center gap-4 mb-6 relative">
+            <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-white/80 font-bold">12:00 – 15:00</p>
+              <h3 class="text-xl font-heading font-bold">Peak Learning</h3>
+            </div>
+          </div>
+          <ul class="space-y-4 relative flex-1">
+            <li class="flex items-center gap-3 font-medium">
+              <span class="w-2 h-2 rounded-full bg-white flex-shrink-0"></span> Nutritious lunch together
+            </li>
+            <li class="flex items-center gap-3 font-medium">
+              <span class="w-2 h-2 rounded-full bg-white flex-shrink-0"></span> Science & STEM experiments
+            </li>
+            <li class="flex items-center gap-3 font-medium">
+              <span class="w-2 h-2 rounded-full bg-white flex-shrink-0"></span> Music, dance & drama
+            </li>
+            <li class="flex items-center gap-3 font-medium">
+              <span class="w-2 h-2 rounded-full bg-white flex-shrink-0"></span> Team challenges
+            </li>
+          </ul>
+          <p class="mt-8 pt-6 border-t border-white/25 font-heading font-bold text-lg">Ages 5-15 &nbsp;·&nbsp; All skill levels welcome</p>
+        </div>
+
+        <!-- Evening -->
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/15 flex items-center justify-center text-secondary text-2xl">
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-secondary font-bold">15:00 – 17:00</p>
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Evening Adventures</h3>
+            </div>
+          </div>
+          <ul class="space-y-4 flex-1">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span> Yoga & mindfulness
+            </li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span> Coding & robotics club
+            </li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span> Storytime & skits
+            </li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span> Daily recap & awards
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 5. PARENT TESTIMONIALS SECTION -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4">
+          Parent Testimonials <i class="fa-solid fa-quote-right text-secondary/30 ml-2"></i>
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Don't just take our word for it. Hear what parents have to say about their children's experiences at KidsCamp!</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-orange-50 dark:bg-slate-900 border border-orange-100 dark:border-slate-800 rounded-[2rem] p-8 relative flex flex-col h-full">
+          <div class="absolute top-8 right-8 text-primary/20 text-4xl"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="flex items-center gap-2 mb-6 text-[#FFB703] text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-8 relative z-10 flex-1">
+            "My son attended the coding and nature exploration camps. He came home every single day bubbling with excitement. The staff is incredible, and the facility is incredibly safe. We'll definitely be back next year!"
+          </p>
+          <div class="flex items-center gap-4 border-t border-orange-200 dark:border-slate-700 pt-6">
+            <img src="images\g3.avif" alt="Sarah Miller" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white">Sarah Miller</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Mother of 8-year-old</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-teal-50 dark:bg-slate-900 border border-teal-100 dark:border-slate-800 rounded-[2rem] p-8 relative shadow-lg flex flex-col h-full">
+          <div class="absolute top-8 right-8 text-secondary/20 text-4xl"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="flex items-center gap-2 mb-6 text-[#FFB703] text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-8 relative z-10 flex-1">
+            "We were nervous sending our daughter to her first full-day camp, but the counselors were so warm and welcoming. She learned to swim independently and made so many friends. Highly recommended!"
+          </p>
+          <div class="flex items-center gap-4 border-t border-teal-200 dark:border-slate-700 pt-6">
+            <img src="images\m1.avif" alt="James Davis" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white">James & Emily Davis</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Parents of 6-year-old</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-orange-50 dark:bg-slate-900 border border-orange-100 dark:border-slate-800 rounded-[2rem] p-8 relative flex flex-col h-full">
+          <div class="absolute top-8 right-8 text-primary/20 text-4xl"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="flex items-center gap-2 mb-6 text-[#FFB703] text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-8 relative z-10 flex-1">
+            "The perfect balance of structured activities and free play. The sports program really helped my teenager build confidence. The login portal makes enrolling and checking the schedule super easy."
+          </p>
+          <div class="flex items-center gap-4 border-t border-orange-200 dark:border-slate-700 pt-6">
+            <img src="images\g4.avif" alt="Anita Rodriguez" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white">Anita Rodriguez</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Mother of 13-year-old</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 8. NEWSLETTER / STAY UPDATED SECTION -->
+  <section class="py-16 bg-white dark:bg-slate-950 transition-theme border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+      <div class="bg-primary rounded-[2rem] p-8 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl relative overflow-hidden">
+        
+        <i class="fa-regular fa-paper-plane absolute top-6 right-10 text-white/20 text-6xl rotate-12"></i>
+        <i class="fa-solid fa-shapes absolute bottom-6 left-10 text-white/20 text-6xl -rotate-12"></i>
+
+        <div class="relative z-10 text-white lg:w-1/2 text-center lg:text-left">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Stay Updated!</h2>
+          <p class="font-medium opacity-90">Subscribe to get camp updates, early bird offers, schedules & more directly to your inbox.</p>
+        </div>
+
+        <div class="relative z-10 w-full lg:w-1/2">
+          <form class="flex flex-col sm:flex-row bg-white rounded-3xl sm:rounded-full p-2 shadow-lg gap-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 bg-transparent px-6 py-3 text-dark outline-none font-medium placeholder-slate-400" required>
+            <button type="submit" class="bg-[#FFB703] text-dark font-bold px-8 py-3 rounded-full hover:bg-yellow-400 transition-colors whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+
+</body>
+</html>

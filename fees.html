@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fees | KidsCamp</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind Configuration for Custom Theme Colors -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B35',
+            secondary: '#2EC4B6',
+            dark: '#111111',
+            light: '#FFFFFF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .font-heading {
+      font-family: 'Poppins', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Floating blobs */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(5deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delay { animation: float 7s ease-in-out 1.5s infinite; }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans transition-theme overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <!-- 1. PAGE HERO / BREADCRUMB BANNER -->
+  <section class="relative overflow-hidden pt-36 pb-24 lg:pt-40 lg:pb-32 bg-gradient-to-br from-slate-900 via-secondary to-primary dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-theme">
+
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- Text Content -->
+        <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <nav class="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-white/80 mb-6">
+            <a href="index.html" class="hover:text-white transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+            <i class="fa-solid fa-chevron-right text-xs text-white/50"></i>
+            <span class="text-white">Fees</span>
+          </nav>
+
+          <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2 text-sm font-bold text-white mb-6">
+            <i class="fa-solid fa-wallet text-primary"></i> No Hidden Costs
+          </span>
+
+          <h1 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+            Simple, <span class="text-primary">Transparent</span> Fees
+          </h1>
+          <p class="text-white/90 font-medium text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">No hidden costs, no surprises. Pick a plan, add days and extras, and know exactly what you're paying — with discounts for families who book more.</p>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 mt-9">
+            <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-check-circle text-primary"></i> All-inclusive</span>
+            <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-tags text-primary"></i> Sibling Discount</span>
+            <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-timer text-primary"></i> Early-Bird Offer</span>
+          </div>
+        </div>
+
+        <!-- Hero Image - price wall composition (hidden on mobile & tablet) -->
+        <div class="hidden lg:block relative w-full max-w-[480px] mx-auto lg:mx-0">
+
+          <!-- Backdrop glow -->
+          <div class="absolute -top-10 left-0 w-72 h-72 rounded-full bg-primary/30 blur-3xl"></div>
+          <div class="absolute -bottom-14 right-0 w-72 h-72 rounded-full bg-secondary/30 blur-3xl"></div>
+
+          <!-- Main framed price card -->
+          <div class="relative bg-white dark:bg-slate-800 rounded-[2.5rem] p-8 shadow-2xl border-4 border-white/20 overflow-hidden">
+            <div class="absolute -top-8 -right-8 w-32 h-32 bg-primary/10 rounded-full"></div>
+            <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-secondary/10 rounded-full"></div>
+
+            <div class="flex items-center justify-between mb-6 relative">
+              <span class="bg-primary/15 text-primary font-heading font-bold px-3 py-1 rounded-full text-xs">Best Value</span>
+              <i class="fa-solid fa-fire text-primary text-xl"></i>
+            </div>
+
+            <h3 class="font-heading font-bold text-xl text-dark dark:text-white mb-1">Full Week</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">6 days of camp, all activities included</p>
+
+            <div class="font-heading font-bold text-dark dark:text-white mb-6">
+              <span class="text-5xl text-primary">₹12,998</span>
+              <span class="text-slate-500 dark:text-slate-400 font-semibold text-sm">/ week</span>
+            </div>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-slate-300"><i class="fa-solid fa-circle-check text-secondary"></i> All activities & materials</li>
+              <li class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-slate-300"><i class="fa-solid fa-circle-check text-secondary"></i> Lunch & 2 snacks daily</li>
+              <li class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-slate-300"><i class="fa-solid fa-circle-check text-secondary"></i> Free pickup included</li>
+              <li class="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-slate-300"><i class="fa-solid fa-circle-check text-secondary"></i> Certified counselor support</li>
+            </ul>
+
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-5">
+              <span class="text-sm font-semibold text-slate-500 dark:text-slate-400">Sibling – 15% off</span>
+              <span class="bg-secondary/15 text-secondary text-xs font-bold px-3 py-1 rounded-full">Save ₹1,950</span>
+            </div>
+          </div>
+
+          <!-- Floating discount badge -->
+          <div class="absolute -top-6 -right-4 bg-gradient-to-br from-primary to-secondary text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-2xl rotate-12 border-4 border-white/30 z-20">
+            <i class="fa-solid fa-tags text-lg mb-0.5"></i>
+            <p class="font-heading font-bold text-xl leading-none">10%</p>
+            <p class="text-[9px] font-bold uppercase tracking-wider opacity-90">Early Bird</p>
+          </div>
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PLAN PRICING CARDS -->
+  <section class="py-20 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Choose a Plan</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">Pricing Plans for Every Family</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Flexible weekly plans. Pay only for the days you need, with more days = better value.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+        <!-- Half Day -->
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 flex flex-col hover:shadow-xl transition-shadow duration-300">
+          <p class="text-sm font-heading font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Half Day</p>
+          <div class="mb-6">
+            <span class="text-5xl font-heading font-bold text-primary">₹3,499</span>
+            <span class="text-slate-500 dark:text-slate-400 font-semibold">/ week</span>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Ideal for busy schedules & first-timers.</p>
+          <ul class="space-y-3 flex-1 mb-8">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 4 hours daily</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 5 activities per week</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 1 snack included</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Camp t-shirt & badge</li>
+          </ul>
+          <a href="signup.html" class="block text-center rounded-2xl border-2 border-primary text-primary font-heading font-bold py-3 hover:bg-primary hover:text-white transition-colors">Get Half Day</a>
+        </div>
+
+        <!-- Full Day (featured) -->
+        <div class="bg-secondary text-white rounded-3xl p-8 flex flex-col shadow-2xl shadow-secondary/30 relative overflow-hidden lg:scale-105">
+          <span class="absolute top-5 right-5 bg-[#FFB703] text-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Best Value</span>
+          <p class="text-sm font-heading font-bold text-white/80 uppercase tracking-wide mb-1">Full Day</p>
+          <div class="mb-6">
+            <span class="text-5xl font-heading font-bold">₹6,499</span>
+            <span class="text-white/80 font-semibold">/ week</span>
+          </div>
+          <p class="text-white/85 text-sm mb-6">Our most-loved all-day adventure.</p>
+          <ul class="space-y-3 flex-1 mb-8">
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> 8 hours daily</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> 10+ activities per week</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> Lunch & 2 snacks</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> Weekly field trips</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> Progress report</li>
+          </ul>
+          <a href="signup.html" class="block text-center rounded-2xl bg-white text-secondary font-heading font-bold py-3 hover:bg-[#FFB703] hover:text-dark transition-colors">Choose Full Day</a>
+        </div>
+
+        <!-- Overnight -->
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 flex flex-col hover:shadow-xl transition-shadow duration-300">
+          <p class="text-sm font-heading font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1">Overnight Camp</p>
+          <div class="mb-6">
+            <span class="text-5xl font-heading font-bold text-primary">₹12,999</span>
+            <span class="text-slate-500 dark:text-slate-400 font-semibold">/ week</span>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For the ultimate adventure seekers.</p>
+          <ul class="space-y-3 flex-1 mb-8">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 24/7 supervision</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> All meals included</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Bonfire & camp nights</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Off-site excursions</li>
+          </ul>
+          <a href="signup.html" class="block text-center rounded-2xl border-2 border-primary text-primary font-heading font-bold py-3 hover:bg-primary hover:text-white transition-colors">Go Overnight</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DISCOUNTS & OFFERS -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-theme border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Save More</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">Discounts & Offers</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 mx-auto rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-2xl text-primary mb-4"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Early Bird</h3>
+          <p class="text-2xl font-heading font-bold text-primary mb-1">10% OFF</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Book before March 31</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 mx-auto rounded-full bg-secondary/10 border-2 border-secondary flex items-center justify-center text-2xl text-secondary mb-4"><i class="fa-solid fa-children"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Sibling Discount</h3>
+          <p class="text-2xl font-heading font-bold text-primary mb-1">10% OFF</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">On every sibling enrolled</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 mx-auto rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-2xl text-primary mb-4"><i class="fa-solid fa-calendar-days"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Full Summer</h3>
+          <p class="text-2xl font-heading font-bold text-primary mb-1">15% OFF</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Book all 8 weeks upfront</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 mx-auto rounded-full bg-secondary/10 border-2 border-secondary flex items-center justify-center text-2xl text-secondary mb-4"><i class="fa-solid fa-user-plus"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Refer a Friend</h3>
+          <p class="text-2xl font-heading font-bold text-primary mb-1">₹500</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Off for every successful referral</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEE BREAKDOWN / WHAT'S INCLUDED -->
+  <section class="py-20 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img src="images\img15.avif" alt="Happy camper supplies" class="w-full h-[520px] object-cover rounded-[2.5rem] shadow-2xl">
+          <div class="absolute -bottom-6 -left-6 bg-primary text-white rounded-2xl p-6 shadow-2xl max-w-[230px]">
+            <div class="text-3xl font-heading font-bold mb-1">All-Inclusive</div>
+            <p class="text-white/90 text-sm font-medium">What you see is what you pay — nothing extra.</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">No Hidden Costs</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-6">Your Fees Cover Everything</h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium mb-8 leading-relaxed">Every plan includes all the essentials so you never worry about surprise add-ons.</p>
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-4">
+              <i class="fa-solid fa-check-circle text-secondary text-xl mt-0.5"></i>
+              <div><span class="font-heading font-bold text-dark dark:text-white">All activities & materials</span>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Art supplies, STEM kits, sports gear — all provided.</p></div>
+            </li>
+            <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-4">
+              <i class="fa-solid fa-check-circle text-secondary text-xl mt-0.5"></i>
+              <div><span class="font-heading font-bold text-dark dark:text-white">Certified staff & supervision</span>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Vetted counselors and low camper-to-staff ratios.</p></div>
+            </li>
+            <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-4">
+              <i class="fa-solid fa-check-circle text-secondary text-xl mt-0.5"></i>
+              <div><span class="font-heading font-bold text-dark dark:text-white">Meals & snacks</span>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Nutritious, kid-approved food depending on your plan.</p></div>
+            </li>
+            <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-4">
+              <i class="fa-solid fa-check-circle text-secondary text-xl mt-0.5"></i>
+              <div><span class="font-heading font-bold text-dark dark:text-white">Insurance & first aid</span>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Comprehensive coverage and on-site medical support.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PAYMENT OPTIONS -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-theme border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Flexible Payment</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">Pay the Way That Suits You</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Secure online payments with instant confirmation and easy-to-read receipts.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-brands fa-cc-visa text-4xl text-primary mb-3"></i>
+          <i class="fa-brands fa-cc-mastercard text-4xl text-[#FFB703] mb-3 ml-2"></i>
+          <h3 class="font-heading font-bold text-dark dark:text-white">Cards</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Visa, Mastercard, Amex & more</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-building-columns text-4xl text-secondary mb-3"></i>
+          <h3 class="font-heading font-bold text-dark dark:text-white">Net Banking</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Direct from all major banks</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-mobile-screen text-4xl text-primary mb-3"></i>
+          <h3 class="font-heading font-bold text-dark dark:text-white">UPI / Wallets</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">GPay, PhonePe, Paytm & more</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-money-check-dollar text-4xl text-secondary mb-3"></i>
+          <h3 class="font-heading font-bold text-dark dark:text-white">Installments</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Split summer fees into 2-3 parts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FEE COMPARISON TABLE -->
+  <section class="py-20 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Compare Plans</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">Fees at a Glance</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Quick comparison so you can decide the right fit for your family.</p>
+      </div>
+      <!-- Desktop table (hidden below lg) -->
+      <div class="hidden lg:block overflow-x-auto rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg">
+        <table class="w-full min-w-[720px] bg-white dark:bg-slate-900">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-800 text-left">
+              <th class="px-6 py-5 font-heading font-bold text-dark dark:text-white">Details</th>
+              <th class="px-6 py-5 font-heading font-bold text-primary">Half Day</th>
+              <th class="px-6 py-5 font-heading font-bold text-secondary">Full Day</th>
+              <th class="px-6 py-5 font-heading font-bold text-dark dark:text-white">Overnight</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Weekly price</td>
+              <td class="px-6 py-4 font-heading font-bold text-primary">₹3,499</td>
+              <td class="px-6 py-4 font-heading font-bold text-primary">₹6,499</td>
+              <td class="px-6 py-4 font-heading font-bold text-primary">₹12,999</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Hours / day</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">4 hrs</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">8 hrs</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">24/7</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Meals</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">1 snack</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">Lunch + 2 snacks</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">All meals</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Field trips</td>
+              <td class="px-6 py-4"><i class="fa-solid fa-xmark text-red-400"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Progress report</td>
+              <td class="px-6 py-4"><i class="fa-solid fa-xmark text-red-400"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile & tablet card comparison (lg:hidden) -->
+      <div class="lg:hidden grid sm:grid-cols-2 gap-6">
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Half Day</h3>
+            <span class="bg-primary/15 text-primary font-heading font-bold px-3 py-1 rounded-full text-xs">4 hrs</span>
+          </div>
+          <p class="font-heading font-bold text-3xl text-primary mb-5">₹3,499<span class="text-sm text-slate-500 dark:text-slate-400 font-semibold">/ week</span></p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 1 snack included</li>
+            <li class="flex items-center gap-3 text-slate-400 font-medium"><i class="fa-solid fa-xmark text-red-400"></i> Field trips</li>
+            <li class="flex items-center gap-3 text-slate-400 font-medium"><i class="fa-solid fa-xmark text-red-400"></i> Progress report</li>
+          </ul>
+        </div>
+        <div class="lg:hidden sm:hidden"></div>
+        <div class="border-2 border-primary bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 shadow-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Full Day</h3>
+            <span class="bg-primary text-white font-heading font-bold px-3 py-1 rounded-full text-xs">8 hrs</span>
+          </div>
+          <p class="font-heading font-bold text-3xl text-primary mb-5">₹6,499<span class="text-sm text-slate-500 dark:text-slate-400 font-semibold">/ week</span></p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Lunch + 2 snacks</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Field trips</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Progress report</li>
+          </ul>
+        </div>
+        <div class="border-2 border-secondary bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 shadow-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Overnight</h3>
+            <span class="bg-secondary text-white font-heading font-bold px-3 py-1 rounded-full text-xs">24/7</span>
+          </div>
+          <p class="font-heading font-bold text-3xl text-primary mb-5">₹12,999<span class="text-sm text-slate-500 dark:text-slate-400 font-semibold">/ week</span></p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> All meals included</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Field trips</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Progress report</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-theme border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-12">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Fee Questions</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">Fees FAQ</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow" open>
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            Are there any hidden charges?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">No. Every plan is all-inclusive. Activities, materials, meals (per plan), staff and insurance are all covered in the price.</p>
+        </details>
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            Can I pay in installments?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Yes! Split your summer fee into 2-3 easy installments at no extra cost.</p>
+        </details>
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+          What's your refund policy?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Cancel up to 7 days before your session for a full refund. After that, we offer a credit toward any future camp.</p>
+        </details>
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            Do discounts combine?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">You can combine sibling and early-bird offers. Full-summer and referral credits stack too — we're happy to show you your best deal.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA BANNER -->
+  <section class="py-16 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+      <div class="bg-gradient-to-r from-primary to-secondary rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden shadow-2xl">
+        <i class="fa-solid fa-wallet absolute top-6 left-8 text-white/15 text-7xl animate-float"></i>
+        <i class="fa-solid fa-coins absolute bottom-6 right-8 text-white/15 text-7xl animate-float-delay"></i>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Lock in Today's Best Price</h2>
+          <p class="text-white/90 font-medium text-lg mb-8">Early birds save 10% and summer spots are filling fast. Reserve now for the best rate.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="signup.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-white text-primary font-heading font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+              <i class="fa-solid fa-credit-card"></i> Enroll & Pay
+            </a>
+            <a href="schedule.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border-2 border-white/70 text-white font-heading font-bold text-lg hover:bg-white/10 transition-colors">
+              <i class="fa-solid fa-calendar"></i> View Schedule
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

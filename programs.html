@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs | KidsCamp</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind Configuration for Custom Theme Colors -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B35',
+            secondary: '#2EC4B6',
+            dark: '#111111',
+            light: '#FFFFFF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .font-heading {
+      font-family: 'Poppins', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Floating blobs for hero */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(5deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delay { animation: float 7s ease-in-out 1.5s infinite; }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans transition-theme overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <!-- 1. PAGE HERO / BREADCRUMB BANNER -->
+  <section class="relative overflow-hidden pt-36 pb-24 lg:pt-40 lg:pb-32 bg-gradient-to-br from-slate-900 via-secondary to-primary dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-theme">
+
+
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- Text Content -->
+        <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <nav class="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-white/80 mb-6">
+            <a href="index.html" class="hover:text-white transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+            <i class="fa-solid fa-chevron-right text-xs text-white/50"></i>
+            <span class="text-white">Programs</span>
+          </nav>
+
+          <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2 text-sm font-bold text-white mb-6">
+            <i class="fa-solid fa-wand-magic-sparkles text-primary"></i> Summer 2026 Lineup
+          </span>
+
+          <h1 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+            Explore Our <span class="text-primary">Programs</span>
+          </h1>
+          <p class="text-white/90 font-medium text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">25+ expertly crafted activities across arts, sports, science and more — designed to spark curiosity, build confidence and keep kids smiling all summer long.</p>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 mt-9">
+            <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-users text-primary"></i> Ages 5-15</span>
+            <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-medal text-primary"></i> Certified Coaches</span>
+            <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-shield-halved text-primary"></i> 100% Safe</span>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative w-full max-w-[440px] sm:max-w-[480px] mx-auto lg:mx-0 h-[280px] sm:h-[350px] lg:h-[440px]">
+          <div class="absolute inset-0 rounded-[2rem] sm:rounded-[3rem] rounded-tr-[7rem] sm:rounded-tr-[10rem] overflow-hidden border-4 border-white/30 shadow-2xl">
+            <img src="images\img8.jpg" alt="Kids doing science experiments at camp" class="w-full h-full object-cover">
+          </div>
+          <!-- Floating stat card -->
+          <div class="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl max-w-[200px]">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl"><i class="fa-solid fa-flask"></i></div>
+              <div>
+                <p class="font-heading font-bold text-2xl text-dark dark:text-white">25+</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Fun Activities</p>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 bg-secondary text-white rounded-full w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-xl rotate-12 text-center">
+            <i class="fa-solid fa-star text-[#FFE29A] text-lg mb-1"></i>
+            <p class="font-heading font-bold text-sm leading-tight px-2">Happy<br>Campers</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CATEGORY FILTER / PILL NAV -->
+  <section class="bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button class="category-btn flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3 font-heading font-bold text-sm" data-cat="all">
+          <i class="fa-solid fa-layer-group"></i> All Programs
+        </button>
+        <button class="category-btn flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors" data-cat="arts">
+          <i class="fa-solid fa-palette"></i> Arts & Crafts
+        </button>
+        <button class="category-btn flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors" data-cat="sports">
+          <i class="fa-solid fa-volleyball"></i> Sports
+        </button>
+        <button class="category-btn flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors" data-cat="stem">
+          <i class="fa-solid fa-flask"></i> STEM & Science
+        </button>
+        <button class="category-btn flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors" data-cat="performance">
+          <i class="fa-solid fa-masks-theater"></i> Performance
+        </button>
+        <button class="category-btn flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors" data-cat="wellness">
+          <i class="fa-solid fa-child-reaching"></i> Wellness
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PROGRAM CARDS GRID -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm">Discover</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mt-1">Featured Camp Programs</h2>
+        </div>
+        <p class="hidden md:block text-slate-400 font-semibold text-sm">Showing all programs</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="programGrid">
+        <!-- Program 1 -->
+        <article class="program-card group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-cat="arts">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images\img9.avif" alt="Painting & Drawing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-white dark:bg-slate-800 text-primary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Arts & Crafts</span>
+            <span class="absolute top-4 right-4 bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 5-10</span>
+          </div>
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Junior Artist Studio</h3>
+              <div class="flex text-[#FFB703] text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-5">Painting, sketching, clay modeling & DIY crafts to unleash every child's inner artist.</p>
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-clock text-primary"></i> 6 hrs/wk
+              </div>
+              <span class="text-lg font-heading font-bold text-primary">₹2,999</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Program 2 -->
+        <article class="program-card group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-cat="sports">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images\img7.avif" alt="Multi-Sports Camp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-white dark:bg-slate-800 text-secondary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Sports</span>
+            <span class="absolute top-4 right-4 bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 6-14</span>
+          </div>
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Multi-Sports Arena</h3>
+              <div class="flex text-[#FFB703] text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-5">Football, basketball, tennis & athletics with certified coaches who make fitness fun.</p>
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-clock text-secondary"></i> 8 hrs/wk
+              </div>
+              <span class="text-lg font-heading font-bold text-primary">₹3,499</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Program 3 -->
+        <article class="program-card group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-cat="stem">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images\Science Explorers.avif" alt="Science Explorers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-white dark:bg-slate-800 text-[#8338EC] font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">STEM & Science</span>
+            <span class="absolute top-4 right-4 bg-[#8338EC] text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 8-15</span>
+          </div>
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Science Explorers</h3>
+              <div class="flex text-[#FFB703] text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-5">Hands-on experiments, robotics & coding that make science feel like magic.</p>
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-clock text-[#8338EC]"></i> 6 hrs/wk
+              </div>
+              <span class="text-lg font-heading font-bold text-primary">₹3,999</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Program 4 -->
+        <article class="program-card group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-cat="performance">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images\Stage Stars.webp" alt="Music & Dance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-white dark:bg-slate-800 text-primary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Performance</span>
+            <span class="absolute top-4 right-4 bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 5-12</span>
+          </div>
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Stage Stars</h3>
+              <div class="flex text-[#FFB703] text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-5">Singing, dancing, drama & stagecraft ending in a grand camp performance.</p>
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-clock text-primary"></i> 6 hrs/wk
+              </div>
+              <span class="text-lg font-heading font-bold text-primary">₹3,499</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Program 5 -->
+        <article class="program-card group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-cat="wellness">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images\Mindful Movers.webp" alt="Yoga & Mindfulness" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-white dark:bg-slate-800 text-secondary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Wellness</span>
+            <span class="absolute top-4 right-4 bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 6-15</span>
+          </div>
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Mindful Movers</h3>
+              <div class="flex text-[#FFB703] text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-5">Playful yoga, breathing & mindfulness to help kids stay calm, focused and strong.</p>
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-clock text-secondary"></i> 4 hrs/wk
+              </div>
+              <span class="text-lg font-heading font-bold text-primary">₹2,499</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Program 6 -->
+        <article class="program-card group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-cat="sports">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images\Adventure.avif" alt="Adventure Club" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-white dark:bg-slate-800 text-[#FFB703] font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Outdoor</span>
+            <span class="absolute top-4 right-4 bg-[#FFB703] text-dark font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 8-15</span>
+          </div>
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-heading font-bold text-dark dark:text-white">Adventure Club</h3>
+              <div class="flex text-[#FFB703] text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-5">Trekking, obstacle courses, treasure hunts & rock climbing for fearless explorers.</p>
+            <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-clock text-[#FFB703]"></i> 7 hrs/wk
+              </div>
+              <span class="text-lg font-heading font-bold text-primary">₹3,999</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHY OUR PROGRAMS WORK / BENEFITS -->
+  <section class="py-20 bg-white dark:bg-slate-900 transition-theme border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Why It Works</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">Designed Around Your Child</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-3xl text-primary mb-4"><i class="fa-solid fa-user-gear"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-2">Personalized Tracks</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Programs tailored to age, interest and skill level.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-secondary/10 border-2 border-secondary flex items-center justify-center text-3xl text-secondary mb-4"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-2">Skill-Based Learning</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Every activity builds a real, visible skill — from coding to confidence.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-3xl text-primary mb-4"><i class="fa-solid fa-people-group"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-2">Small Groups</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Low camper-to-counselor ratio for real attention and bonding.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-secondary/10 border-2 border-secondary flex items-center justify-center text-3xl text-secondary mb-4"><i class="fa-solid fa-clipboard-check"></i></div>
+          <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-2">Progress Reports</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Parents get updates and highlights at the end of every week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CAMP THEME WEEKS -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">A Week, A New Adventure</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">Explore Our Theme Weeks</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto mt-3">Every week brings a fresh, immersive theme so kids stay curious, excited and engaged all summer.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="group relative rounded-3xl overflow-hidden h-[340px] shadow-lg">
+          <img src="images/img1.avif" alt="Arts week" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <span class="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full mb-3"><i class="fa-solid fa-palette"></i> Week 1</span>
+            <h3 class="font-heading font-bold text-xl text-white mb-1">Creative Arts</h3>
+            <p class="text-sm text-white/80">Painting, clay, crafts & a final gallery show.</p>
+          </div>
+        </div>
+        <div class="group relative rounded-3xl overflow-hidden h-[340px] shadow-lg">
+          <img src="images/img2.avif" alt="Sports week" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <span class="inline-flex items-center gap-2 bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full mb-3"><i class="fa-solid fa-volleyball"></i> Week 2</span>
+            <h3 class="font-heading font-bold text-xl text-white mb-1">Sports Extravaganza</h3>
+            <p class="text-sm text-white/80">Swimming, football, cricket & fun team games.</p>
+          </div>
+        </div>
+        <div class="group relative rounded-3xl overflow-hidden h-[340px] shadow-lg">
+          <img src="images/img3.avif" alt="Science week" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <span class="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full mb-3"><i class="fa-solid fa-flask"></i> Week 3</span>
+            <h3 class="font-heading font-bold text-xl text-white mb-1">Science & Discovery</h3>
+            <p class="text-sm text-white/80">Mind-blowing experiments & nature explorations.</p>
+          </div>
+        </div>
+        <div class="group relative rounded-3xl overflow-hidden h-[340px] shadow-lg">
+          <img src="images/img5.avif" alt="Adventure week" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <span class="inline-flex items-center gap-2 bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full mb-3"><i class="fa-solid fa-compass"></i> Week 4</span>
+            <h3 class="font-heading font-bold text-xl text-white mb-1">Adventure Quest</h3>
+            <p class="text-sm text-white/80">Treasure hunts, outdoor games & team challenges.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="schedule.html" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border-2 border-primary text-primary font-heading font-bold hover:bg-primary hover:text-white transition-colors">
+          View Full Schedule <i class="fa-solid fa-calendar-days"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- 5. HOW TO ENROLL (Steps) -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Simple & Stress-free</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">How to Enroll in 4 Steps</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8 relative">
+        <div class="hidden md:block absolute top-10 left-[12%] right-[12%] h-1 bg-slate-200 dark:bg-slate-800"></div>
+        <div class="relative text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-primary text-white flex items-center justify-center text-2xl font-heading font-bold shadow-lg shadow-primary/30 relative z-10">1</div>
+          <h3 class="font-heading font-bold text-dark dark:text-white mt-5 mb-1">Choose a Program</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Browse programs and pick what fits your child's interests.</p>
+        </div>
+        <div class="relative text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-secondary text-white flex items-center justify-center text-2xl font-heading font-bold shadow-lg shadow-secondary/30 relative z-10">2</div>
+          <h3 class="font-heading font-bold text-dark dark:text-white mt-5 mb-1">Pick Your Weeks</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Select from flexible weekly sessions that suit your schedule.</p>
+        </div>
+        <div class="relative text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-primary text-white flex items-center justify-center text-2xl font-heading font-bold shadow-lg shadow-primary/30 relative z-10">3</div>
+          <h3 class="font-heading font-bold text-dark dark:text-white mt-5 mb-1">Complete Payment</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Secure your spot with our simple online checkout.</p>
+        </div>
+        <div class="relative text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-secondary text-white flex items-center justify-center text-2xl font-heading font-bold shadow-lg shadow-secondary/30 relative z-10">4</div>
+          <h3 class="font-heading font-bold text-dark dark:text-white mt-5 mb-1">Pack & Enjoy</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Get a welcome kit and watch the summer fun begin!</p>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="signup.html" class="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-white font-heading font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/30">
+          <i class="fa-solid fa-user-plus"></i> Enroll Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 6. STATS / RESULTS STRIP -->
+  <section class="relative overflow-hidden py-14 bg-gradient-to-r from-primary to-secondary transition-theme">
+    <i class="fa-solid fa-shapes absolute top-6 left-10 text-white/15 text-5xl -rotate-12"></i>
+    <i class="fa-solid fa-star absolute bottom-6 right-10 text-white/15 text-4xl animate-float"></i>
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <div class="text-center text-white">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center text-2xl mb-3"><i class="fa-solid fa-face-smile"></i></div>
+          <p class="font-heading font-bold text-4xl lg:text-5xl">98<span class="text-[#FFE29A]">%</span></p>
+          <p class="text-sm font-semibold text-white/90 mt-1 uppercase tracking-wide">Happy Campers</p>
+        </div>
+        <div class="text-center text-white">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center text-2xl mb-3"><i class="fa-solid fa-lightbulb"></i></div>
+          <p class="font-heading font-bold text-4xl lg:text-5xl">25<span class="text-[#FFE29A]">+</span></p>
+          <p class="text-sm font-semibold text-white/90 mt-1 uppercase tracking-wide">Unique Activities</p>
+        </div>
+        <div class="text-center text-white">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center text-2xl mb-3"><i class="fa-solid fa-star"></i></div>
+          <p class="font-heading font-bold text-4xl lg:text-5xl">4.9</p>
+          <p class="text-sm font-semibold text-white/90 mt-1 uppercase tracking-wide">Parent Rating</p>
+        </div>
+        <div class="text-center text-white">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center text-2xl mb-3"><i class="fa-solid fa-user-group"></i></div>
+          <p class="font-heading font-bold text-4xl lg:text-5xl">500<span class="text-[#FFE29A]">+</span></p>
+          <p class="text-sm font-semibold text-white/90 mt-1 uppercase tracking-wide">Camper Families</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- 9. FAQ + CTA -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-theme border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-12">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Have Questions?</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">Programs FAQ</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow" open>
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            Can my child switch programs mid-week?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Absolutely. We make it easy to try different programs so your child can discover what they love most.</p>
+        </details>
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            Are the fees all-inclusive?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Yes. Your fee covers all materials, equipment, snacks and activities — no hidden costs.</p>
+        </details>
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            Do you offer sibling discounts?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">We sure do! Enroll two or more siblings and enjoy 10% off each enrollment.</p>
+        </details>
+        <details class="group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-base">
+            What if my child has special needs?
+            <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+          </summary>
+          <p class="mt-3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed">We're happy to accommodate. Contact us before enrolling and we'll arrange the right support.</p>
+        </details>
+      </div>
+
+      <!-- CTA banner -->
+      <div class="bg-gradient-to-r from-primary to-secondary rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden shadow-2xl">
+        <i class="fa-solid fa-rocket absolute -top-4 -left-4 text-white/15 text-8xl rotate-12"></i>
+        <i class="fa-solid fa-star absolute bottom-6 right-8 text-white/15 text-7xl"></i>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Book Your Child's Spot Today</h2>
+          <p class="text-white/90 font-medium text-lg mb-8">Enrollment for summer 2026 is open and filling fast. Give your child the best summer yet!</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="signup.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-white text-primary font-heading font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+              <i class="fa-solid fa-user-plus"></i> Enroll Now
+            </a>
+            <a href="fees.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border-2 border-white/70 text-white font-heading font-bold text-lg hover:bg-white/10 transition-colors">
+              <i class="fa-solid fa-credit-card"></i> See Fees
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+
+  <!-- Programs Filter Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.category-btn');
+      const cards = document.querySelectorAll('.program-card');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cat = btn.dataset.cat;
+
+          buttons.forEach(b => {
+            b.className = b.className
+              .replace('bg-primary text-white', 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300')
+              .replace('bg-primary/10', '')
+              .replace('text-primary', '');
+          });
+          if (cat === 'all') {
+            btn.className = 'category-btn flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3 font-heading font-bold text-sm';
+          }
+
+          cards.forEach(card => {
+            const show = cat === 'all' || card.dataset.cat === cat;
+            card.style.display = show ? '' : 'none';
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

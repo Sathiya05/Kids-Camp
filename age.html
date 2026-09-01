@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Groups | KidsCamp</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind Configuration for Custom Theme Colors -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B35',
+            secondary: '#2EC4B6',
+            dark: '#111111',
+            light: '#FFFFFF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .font-heading {
+      font-family: 'Poppins', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Floating blobs */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(5deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delay { animation: float 7s ease-in-out 1.5s infinite; }
+
+    /* Slow rotating orbit ring */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow { animation: spinSlow 30s linear infinite; }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans transition-theme overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <!-- 1. PAGE HERO / BREADCRUMB BANNER -->
+  <section class="relative overflow-hidden pt-36 pb-28 lg:pt-40 lg:pb-36 bg-gradient-to-br from-secondary via-secondary/95 to-primary dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-theme">
+
+    <!-- Soft glow orbs -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-28 -right-20 w-96 h-96 bg-dark/10 rounded-full blur-3xl animate-float"></div>
+    <!-- Floating decor -->
+    <i class="fa-solid fa-children absolute top-16 right-16 text-white/10 text-7xl animate-float hidden lg:block"></i>
+
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+
+        <!-- Text Content -->
+        <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <nav class="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-white/90 mb-6">
+            <a href="index.html" class="hover:text-white transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+            <i class="fa-solid fa-chevron-right text-xs text-white/60"></i>
+            <span class="text-white font-bold">Age Groups</span>
+          </nav>
+
+          <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/40 rounded-full px-5 py-2 text-sm font-bold text-white mb-6">
+            <i class="fa-solid fa-people-group text-primary"></i> 5 Unique Age Tracks
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+            Find the <span class="text-primary relative inline-block">Right Fit</span> for Your Child
+          </h1>
+          <p class="text-white font-medium text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">We group campers by age so activities, pace and supervision are always just right. Explore each age track to see what makes your child's summer special.</p>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 mt-9">
+            <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/40 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-baby text-primary"></i> Ages 3-4</span>
+            <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/40 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-child text-primary"></i> Ages 5-7</span>
+            <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/40 rounded-full px-5 py-2.5 text-sm font-bold text-white"><i class="fa-solid fa-user-graduate text-primary"></i> Ages 8-15</span>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Circular image with orbiting age tags -->
+        <div class="relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] lg:w-[420px] lg:h-[420px] mx-auto">
+          <!-- Orbit ring -->
+          <div class="absolute inset-0 rounded-full border-2 border-dashed border-white/30 animate-spin-slow"></div>
+
+          <!-- Main circular image -->
+          <div class="absolute inset-6 sm:inset-9 lg:inset-12 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl">
+            <img src="images\img6.avif" alt="Happy campers of different ages" class="w-full h-full object-cover">
+          </div>
+
+          <!-- Floating age pills -->
+          <div class="absolute top-2 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-800 text-dark dark:text-white rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-bold text-sm">
+            <i class="fa-solid fa-baby text-primary"></i> 3-4
+          </div>
+          <div class="absolute top-1/2 -right-2 -translate-y-1/2 bg-white dark:bg-slate-800 text-dark dark:text-white rounded-full px-4 py-2 shadow-xl flex items-center gap-2 font-bold text-sm">
+            <i class="fa-solid fa-child text-primary"></i> 5-7
+          </div>
+        
+
+       
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. QUICK JUMP TABS -->
+  <section class="bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="#juniors" class="flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3 font-heading font-bold text-sm">
+          <i class="fa-solid fa-baby"></i> Juniors <span class="bg-white/25 rounded-full px-2 py-0.5 text-xs">5-7</span>
+        </a>
+        <a href="#middlers" class="flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors">
+          <i class="fa-solid fa-child"></i> Middlers <span class="bg-primary/10 rounded-full px-2 py-0.5 text-xs">8-10</span>
+        </a>
+        <a href="#juniors2" class="flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors">
+          <i class="fa-solid fa-user-graduate"></i> Seniors <span class="bg-primary/10 rounded-full px-2 py-0.5 text-xs">11-13</span>
+        </a>
+        <a href="#teens" class="flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors">
+          <i class="fa-solid fa-person-hiking"></i> Teens <span class="bg-primary/10 rounded-full px-2 py-0.5 text-xs">14-15</span>
+        </a>
+        <a href="#comparison" class="flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-6 py-3 font-heading font-bold text-sm hover:bg-primary/10 hover:text-primary transition-colors">
+          <i class="fa-solid fa-table"></i> Compare All
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AGE GROUP DETAIL CARDS -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Choose a Track</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">Four Age Tracks, One Amazing Summer</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Each track balances play and learning with age-appropriate activities led by specialized counselors.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Juniors -->
+        <article id="juniors" class="scroll-mt-40 bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row">
+          <div class="md:w-2/5 relative min-h-[260px]">
+            <img src="images\Little Explorers.avif" alt="Young juniors" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 bg-primary text-white font-heading font-bold px-4 py-1.5 rounded-full text-sm shadow">Juniors</div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-white font-heading font-bold text-3xl drop-shadow">5–7<br>years</span>
+            </div>
+          </div>
+          <div class="md:w-3/5 p-6 flex flex-col">
+            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Little Explorers</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">A nurturing first-camp experience with lots of guided play, storytime and creative fun.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-primary"></i> Guided arts, music & storytime</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-primary"></i> Gentle sports & parachute games</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-primary"></i> 1 counselor per 5 campers</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <span class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-people-group text-primary"></i> Max 15 / group</span>
+              <a href="signup.html" class="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm hover:gap-3 transition-all">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Middlers -->
+        <article id="middlers" class="scroll-mt-40 bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row">
+          <div class="md:w-2/5 relative min-h-[260px]">
+            <img src="images\Curious Creators.avif" alt="Middler kids playing" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 bg-secondary text-white font-heading font-bold px-4 py-1.5 rounded-full text-sm shadow">Middlers</div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-white font-heading font-bold text-3xl drop-shadow">8–10<br>years</span>
+            </div>
+          </div>
+          <div class="md:w-3/5 p-6 flex flex-col">
+            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Curious Creators</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Hands-on explorers ready for more independence, team challenges and skill-building.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Beginner STEM, coding & robotics</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Team sports & adventure games</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 1 counselor per 7 campers</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <span class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-people-group text-secondary"></i> Max 18 / group</span>
+              <a href="signup.html" class="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm hover:gap-3 transition-all">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Seniors -->
+        <article id="juniors2" class="scroll-mt-40 bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row">
+          <div class="md:w-2/5 relative min-h-[260px]">
+            <img src="images\img10.avif" alt="Senior campers" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#FFB703]/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 bg-[#FFB703] text-dark font-heading font-bold px-4 py-1.5 rounded-full text-sm shadow">Seniors</div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-white font-heading font-bold text-3xl drop-shadow">11–13<br>years</span>
+            </div>
+          </div>
+          <div class="md:w-3/5 p-6 flex flex-col">
+            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Rising Leaders</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Bigger challenges, real projects and plenty of chances to step into leadership roles.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-[#FFB703]"></i> Advanced STEM & web design</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-[#FFB703]"></i> Sports leagues & tournaments</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-[#FFB703]"></i> Leadership & teamwork projects</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <span class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-people-group text-[#FFB703]"></i> Max 20 / group</span>
+              <a href="signup.html" class="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm hover:gap-3 transition-all">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Teens -->
+        <article id="teens" class="scroll-mt-40 bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row">
+          <div class="md:w-2/5 relative min-h-[260px]">
+            <img src="images\Independent Pathfinders.avif" alt="Teen campers collaborating" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#8338EC]/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 bg-[#8338EC] text-white font-heading font-bold px-4 py-1.5 rounded-full text-sm shadow">Teens</div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-white font-heading font-bold text-3xl drop-shadow">14–15<br>years</span>
+            </div>
+          </div>
+          <div class="md:w-3/5 p-6 flex flex-col">
+            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Independent Pathfinders</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Real-world skills, peer mentoring and the freedom to design their own camp week.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-[#8338EC]"></i> Coding, design & entrepreneurship</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-[#8338EC]"></i> Off-site adventure excursions</li>
+              <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-[#8338EC]"></i> Junior counselor program</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+              <span class="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-people-group text-[#8338EC]"></i> Max 22 / group</span>
+              <a href="signup.html" class="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm hover:gap-3 transition-all">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DEVELOPMENT FOCUS BY AGE (Timeline / ladder) -->
+  <section class="py-20 bg-white dark:bg-slate-900 transition-theme section-target">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">What Kids Gain</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-6">Growth That Matches Their Age</h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium mb-8 leading-relaxed">From first friendships to self-directed projects, each stage is designed around the developmental milestones kids are naturally ready for.</p>
+
+          <div class="space-y-6 relative pl-8 before:absolute before:left-[7px] before:top-1 before:bottom-1 before:w-1 before:bg-secondary/30">
+            <div class="relative">
+              <span class="absolute -left-8 top-0 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-slate-900 shadow"></span>
+              <h4 class="font-heading font-bold text-dark dark:text-white mb-1">5–7 · <span class="text-primary">Confidence & Connection</span></h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Social skills, emotional safety and curiosity in a caring, structured setting.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-8 top-0 w-4 h-4 rounded-full bg-secondary border-4 border-white dark:border-slate-900 shadow"></span>
+              <h4 class="font-heading font-bold text-dark dark:text-white mb-1">8–10 · <span class="text-secondary">Curiosity & Creativity</span></h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Problem-solving, collaboration and hands-on discovery that builds real skills.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-8 top-0 w-4 h-4 rounded-full bg-[#FFB703] border-4 border-white dark:border-slate-900 shadow"></span>
+              <h4 class="font-heading font-bold text-dark dark:text-white mb-1">11–13 · <span class="text-[#FFB703]">Leadership & Ownership</span></h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Team leadership, project ownership and deeper specialization in chosen interests.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-8 top-0 w-4 h-4 rounded-full bg-[#8338EC] border-4 border-white dark:border-slate-900 shadow"></span>
+              <h4 class="font-heading font-bold text-dark dark:text-white mb-1">14–15 · <span class="text-[#8338EC]">Independence & Impact</span></h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">Self-direction, real-world skills and mentoring others to make a lasting impact.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img src="images\img11.avif" alt="Happy mixed-age campers" class="w-full h-[520px] object-cover rounded-[2.5rem] shadow-2xl">
+          <div class="absolute -bottom-6 -left-4 bg-secondary text-white rounded-2xl p-6 shadow-2xl max-w-[220px]">
+            <div class="text-3xl font-heading font-bold mb-1">4 Tracks</div>
+            <p class="text-white/90 text-sm font-medium">One safe, joyful place for ages 5 to 15.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHO'S IN YOUR GROUP / RATIO CARDS -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Safety First</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">The Camp Family Behind Every Group</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Small groups, trained staff and a comforting structure mean every child gets the attention they deserve.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-user-tie text-4xl text-primary mb-3"></i>
+          <h3 class="font-heading font-bold text-xl text-dark dark:text-white mb-1">1 : 5</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Staff and their ratio for our youngest campers</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-user-shield text-4xl text-secondary mb-3"></i>
+          <h3 class="font-heading font-bold text-xl text-dark dark:text-white mb-1">BG-Checked</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Every counselor is vetted & first-aid certified</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-user-nurse text-4xl text-primary mb-3"></i>
+          <h3 class="font-heading font-bold text-xl text-dark dark:text-white mb-1">On-Site Care</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Trained nurse & first-aid available all day 24/7</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow">
+          <i class="fa-solid fa-mobile-screen text-4xl text-secondary mb-3"></i>
+          <h3 class="font-heading font-bold text-xl text-dark dark:text-white mb-1">Parent Updates</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Daily photo & progress via portal</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. COMPARISON TABLE -->
+  <section id="comparison" class="scroll-mt-40 py-20 bg-white dark:bg-slate-900 transition-theme border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Side by Side</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white mb-4">Compare Age Groups</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">A quick glance at what each track offers so you can pick with confidence.</p>
+      </div>
+      <!-- Desktop: Full comparison table (lg and up) -->
+      <div class="hidden lg:block overflow-x-auto rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg">
+        <table class="w-full min-w-[720px] bg-white dark:bg-slate-900">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-800 text-left">
+              <th class="px-6 py-5 font-heading font-bold text-dark dark:text-white">Feature</th>
+              <th class="px-6 py-5 font-heading font-bold text-primary">Juniors 5-7</th>
+              <th class="px-6 py-5 font-heading font-bold text-secondary">Middlers 8-10</th>
+              <th class="px-6 py-5 font-heading font-bold text-dark dark:text-white">Seniors 11-13</th>
+              <th class="px-6 py-5 font-heading font-bold text-[#8338EC]">Teens 14-15</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Focus</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">Play & explore</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">Hands-on skills</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">Leadership</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">Independence</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Counselor ratio</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">1 : 5</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">1 : 7</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">1 : 9</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400">1 : 10</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">STEM level</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">Beginner</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">Introductory</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">Advanced</td>
+              <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-xs uppercase">Expert</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Field trips</td>
+              <td class="px-6 py-4"><i class="fa-solid fa-xmark text-red-400"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-secondary"></i></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">Performances</td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-primary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-primary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-primary"></i></td>
+              <td class="px-6 py-4"><i class="fa-solid fa-check text-primary"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile / Tablet: Stacked track cards (below lg) -->
+      <div class="grid sm:grid-cols-2 gap-6 lg:hidden">
+        <div class="rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg bg-white dark:bg-slate-900 p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Juniors</h3>
+            <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">5-7</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Focus</span><span class="font-semibold text-slate-700 dark:text-slate-200">Play & explore</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Ratio</span><span class="font-semibold text-slate-700 dark:text-slate-200">1 : 5</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">STEM</span><span class="font-semibold text-slate-700 dark:text-slate-200">Beginner</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Field trips</span><i class="fa-solid fa-xmark text-red-400"></i></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Performances</span><i class="fa-solid fa-check text-primary"></i></li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg bg-white dark:bg-slate-900 p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Middlers</h3>
+            <span class="text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">8-10</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Focus</span><span class="font-semibold text-slate-700 dark:text-slate-200">Hands-on skills</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Ratio</span><span class="font-semibold text-slate-700 dark:text-slate-200">1 : 7</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">STEM</span><span class="font-semibold text-slate-700 dark:text-slate-200">Introductory</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Field trips</span><i class="fa-solid fa-check text-secondary"></i></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Performances</span><i class="fa-solid fa-check text-primary"></i></li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg bg-white dark:bg-slate-900 p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Seniors</h3>
+            <span class="text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1 rounded-full">11-13</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Focus</span><span class="font-semibold text-slate-700 dark:text-slate-200">Leadership</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Ratio</span><span class="font-semibold text-slate-700 dark:text-slate-200">1 : 9</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">STEM</span><span class="font-semibold text-slate-700 dark:text-slate-200">Advanced</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Field trips</span><i class="fa-solid fa-check text-secondary"></i></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Performances</span><i class="fa-solid fa-check text-primary"></i></li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg bg-white dark:bg-slate-900 p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white">Teens</h3>
+            <span class="text-xs font-bold text-[#8338EC] bg-[#8338EC]/10 px-3 py-1 rounded-full">14-15</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Focus</span><span class="font-semibold text-slate-700 dark:text-slate-200">Independence</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Ratio</span><span class="font-semibold text-slate-700 dark:text-slate-200">1 : 10</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">STEM</span><span class="font-semibold text-slate-700 dark:text-slate-200">Expert</span></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Field trips</span><i class="fa-solid fa-check text-secondary"></i></li>
+            <li class="flex justify-between"><span class="text-slate-500 dark:text-slate-400 font-medium">Performances</span><i class="fa-solid fa-check text-primary"></i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TESTIMONIALS / PARENT VOICES -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-14">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Real Stories</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">Parents Love the Right Fit</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8">
+          <div class="flex text-[#FFB703] text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-slate-600 dark:text-slate-300 font-medium leading-relaxed mb-6 flex-1">"My 6-year-old was nervous, but the Junior track's gentle ratio made her feel safe from day one."</p>
+          <div class="flex items-center gap-3">
+            <img src="images/g3.avif" alt="Sneha Desai" class="w-11 h-11 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white text-sm">Sneha Desai</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Parent of a Junior</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 shadow-lg">
+          <div class="flex text-[#FFB703] text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-slate-600 dark:text-slate-300 font-medium leading-relaxed mb-6 flex-1">"The Middler STEM track sparked a real love for science in my 9-year-old. Amazing value!"</p>
+          <div class="flex items-center gap-3">
+            <img src="images/m1.avif" alt="Vikram Nair" class="w-11 h-11 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white text-sm">Vikram Nair</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Parent of a Middler</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8">
+          <div class="flex text-[#FFB703] text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-slate-600 dark:text-slate-300 font-medium leading-relaxed mb-6 flex-1">"Our teen loved the independence. He planned his own week and even mentored younger campers."</p>
+          <div class="flex items-center gap-3">
+            <img src="images/m2.avif" alt="Amit Rathi" class="w-11 h-11 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white text-sm">Amit Rathi</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Parent of a Teen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA BANNER -->
+  <section class="py-16 bg-white dark:bg-slate-900 transition-theme">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+      <div class="bg-gradient-to-r from-secondary to-primary rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden shadow-2xl">
+        <i class="fa-solid fa-child-reaching absolute top-6 left-8 text-white/15 text-7xl animate-float"></i>
+        <i class="fa-solid fa-sun absolute bottom-6 right-8 text-white/15 text-7xl animate-float-delay"></i>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Not Sure Which Track Is Right?</h2>
+          <p class="text-white/90 font-medium text-lg mb-8">Chat with our team for a free recommendation based on your child's age, interests and personality.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="signup.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-white text-primary font-heading font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+              <i class="fa-solid fa-user-plus"></i> Enroll Now
+            </a>
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border-2 border-white/70 text-white font-heading font-bold text-lg hover:bg-white/10 transition-colors">
+              <i class="fa-solid fa-comments"></i> Talk to Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

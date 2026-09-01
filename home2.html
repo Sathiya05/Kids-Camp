@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KidsCamp | Summer & Activity Program</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind Configuration for Custom Theme Colors -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B35',
+            secondary: '#2EC4B6',
+            dark: '#111111',
+            light: '#FFFFFF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .font-heading {
+      font-family: 'Poppins', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+   
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans transition-theme overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <!-- 1. HERO SECTION (Split with gradient + floating cards) -->
+  <section class="relative overflow-hidden pt-32 pb-20 lg:pt-40 bg-gradient-to-br from-orange-50 via-white to-secondary/20 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-theme">
+    <!-- Decorative blobs -->
+    <div class="absolute top-16 left-16 w-28 h-28 bg-primary/20 rounded-full blur-3xl animate-float z-0"></div>
+    <div class="absolute bottom-24 right-10 w-40 h-40 bg-secondary/25 rounded-full blur-3xl animate-float-delay z-0"></div>
+
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+
+        <div class="text-center lg:text-left order-2 lg:order-1">
+          <span class="inline-flex items-center gap-2 bg-white dark:bg-slate-800 text-primary border border-primary/20 rounded-full px-5 py-2 text-sm font-bold shadow-sm mb-6">
+            <i class="fa-solid fa-fire"></i> Enrollments Open for Summer 2026
+          </span>
+          <h1 class="text-5xl xl:text-7xl font-heading font-bold text-dark dark:text-white leading-[1.05] mb-6">
+            Where Every Summer<br>
+            <span class="text-primary">Becomes Magic</span>
+          </h1>
+          <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 mb-8 font-medium leading-relaxed">
+            A safe, joyful space where kids aged 5-15 explore 25+ activities, build confidence, and make friends that last a lifetime.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-10">
+            <a href="programs.html" class="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-primary text-white font-bold text-lg hover:bg-opacity-90 hover:scale-105 transition-all shadow-lg shadow-primary/30">
+              <i class="fa-solid fa-compass"></i> Explore Activities
+            </a>
+            <a href="signup.html" class="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-secondary text-secondary font-bold text-lg hover:bg-secondary hover:text-white transition-all shadow-lg">
+              <i class="fa-solid fa-ticket"></i> Reserve a Spot
+            </a>
+          </div>
+          <div class="flex items-center justify-center lg:justify-start gap-6">
+            <div class="flex -space-x-3">
+              <img src="images\m2.avif" class="w-11 h-11 rounded-full border-4 border-white dark:border-slate-800 object-cover" alt="parent">
+              <img src="images\g3.avif" class="w-11 h-11 rounded-full border-4 border-white dark:border-slate-800 object-cover" alt="parent">
+              <img src="images\g2.avif" class="w-11 h-11 rounded-full border-4 border-white dark:border-slate-800 object-cover" alt="parent">
+            </div>
+            <div class="text-left">
+              <div class="flex text-[#FFB703] text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="text-sm font-semibold text-dark dark:text-white">Trusted by 500+ families</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual: stacked image cards -->
+        <div class="relative order-1 lg:order-2">
+          <div class="relative w-full max-w-md mx-auto h-[420px] xl:h-[500px]">
+            <div class="absolute inset-0 rounded-[2.5rem] rotate-3 bg-secondary/30 dark:bg-secondary/20"></div>
+            <div class="absolute inset-0 rounded-[2.5rem] -rotate-2 bg-primary/30 dark:bg-primary/20"></div>
+            <img src="images\img4.avif" alt="Happy kids at camp" class="absolute inset-0 w-full h-full object-cover rounded-[2.5rem] shadow-2xl border-8 border-white dark:border-slate-800">
+
+            <!-- Floating badge: top-left -->
+            <div class="absolute -left-4 top-10 bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xl flex items-center gap-3 animate-float">
+              <div class="w-11 h-11 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary text-xl"><i class="fa-solid fa-users"></i></div>
+              <div>
+                <p class="font-heading font-bold text-lg text-dark dark:text-white leading-none">500+</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Happy Campers</p>
+              </div>
+            </div>
+
+            <!-- Floating badge: bottom-right -->
+            <div class="absolute -right-4 bottom-12 bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xl flex items-center gap-3 animate-float-delay">
+              <div class="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center text-primary text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <p class="font-heading font-bold text-lg text-dark dark:text-white leading-none">100%</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Safety Record</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 5. CAMP MOMENTS GALLERY -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div>
+          <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Unforgettable Memories</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark dark:text-white">Camp Moments</h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium mt-2">A glimpse into the smiles, adventures and friendships we create every day.</p>
+        </div>
+        <a href="gallery.html" class="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-secondary text-secondary font-heading font-bold hover:bg-secondary hover:text-white transition-colors">
+          View Full Gallery <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[140px] sm:auto-rows-[160px] md:auto-rows-[180px] gap-4">
+        <!-- Image 1 -->
+        <div class="group relative rounded-3xl overflow-hidden row-span-2">
+          <img src="images\img6.avif" alt="Kids painting together" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-4 text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+            <i class="fa-solid fa-palette mr-1"></i> Arts Studio
+          </div>
+        </div>
+        <!-- Image 2 -->
+        <div class="group relative rounded-3xl overflow-hidden">
+          <img src="images\Sports Day.avif" alt="Sports day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-4 text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+            <i class="fa-solid fa-volleyball mr-1"></i> Sports Day
+          </div>
+        </div>
+        <!-- Image 3 -->
+        <div class="group relative rounded-3xl overflow-hidden">
+          <img src="images\Science Lab.webp" alt="Science experiment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-4 text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+            <i class="fa-solid fa-flask mr-1"></i> Science Lab
+          </div>
+        </div>
+        <!-- Image 4 -->
+        <div class="group relative rounded-3xl overflow-hidden row-span-2 group hidden sm:block">
+          <img src="images\Adventure Club.webp" alt="Adventure day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-4 text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+            <i class="fa-solid fa-person-hiking mr-1"></i> Adventure Club
+          </div>
+        </div>
+        <!-- Image 5 -->
+        <div class="group relative rounded-3xl overflow-hidden">
+          <img src="images\Music & Dance.avif" alt="Music time" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-4 text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+            <i class="fa-solid fa-music mr-1"></i> Music & Dance
+          </div>
+        </div>
+        <!-- Image 6 -->
+        <div class="group relative rounded-3xl overflow-hidden">
+          <img src="images\Friendship.avif" alt="Group photo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-4 text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+            <i class="fa-solid fa-users mr-1"></i> Friendship
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 4. COUNTER / STATS STRIP -->
+  <section class="bg-primary py-14 text-white">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div>
+          <i class="fa-solid fa-face-smile text-5xl mb-3 opacity-90"></i>
+          <h3 class="text-4xl font-heading font-bold" data-count="15000">15,000+</h3>
+          <p class="text-sm uppercase tracking-widest opacity-90 mt-1">Camp Hours of Fun</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-user-check text-5xl mb-3 opacity-90"></i>
+          <h3 class="text-4xl font-heading font-bold">98%</h3>
+          <p class="text-sm uppercase tracking-widest opacity-90 mt-1">Parents Recommend</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-medal text-5xl mb-3 opacity-90"></i>
+          <h3 class="text-4xl font-heading font-bold">12+</h3>
+          <p class="text-sm uppercase tracking-widest opacity-90 mt-1">Years of Excellence</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-heart text-5xl mb-3 opacity-90"></i>
+          <h3 class="text-4xl font-heading font-bold">25+</h3>
+          <p class="text-sm uppercase tracking-widest opacity-90 mt-1">Unique Activities</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- 6. DAILY SCHEDULE (Timeline style) -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img src="images\img5.avif" alt="Kids learning outdoors" class="w-full h-[520px] object-cover rounded-[2.5rem] shadow-2xl">
+          <div class="absolute -bottom-6 -right-4 bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-2xl max-w-[220px]">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="fa-solid fa-clock text-primary text-2xl"></i>
+              <h4 class="font-heading font-bold text-dark dark:text-white">Daily Rhythm</h4>
+            </div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">A balanced blend of energy, focus and calm every single day.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Never a Dull Moment</p>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-8">A Well-Paced Day, <br>Carefully Designed</h2>
+
+          <div class="space-y-6 relative pl-8 before:absolute before:left-2 before:top-1 before:bottom-1 before:w-0.5 before:bg-secondary/30">
+            <!-- Time slot -->
+            <div class="relative">
+              <span class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-primary border-4 border-white dark:border-slate-950 shadow"></span>
+              <h4 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">09:00 – Energize <i class="fa-solid fa-sun text-primary ml-1"></i></h4>
+              <p class="text-slate-500 dark:text-slate-400">Warm-up games, sports drills & outdoor play to burn morning energy.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-secondary border-4 border-white dark:border-slate-950 shadow"></span>
+              <h4 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">12:00 – Create <i class="fa-solid fa-palette text-secondary ml-1"></i></h4>
+              <p class="text-slate-500 dark:text-slate-400">Hands-on arts, STEM labs and music after a healthy group lunch.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-[#FFB703] border-4 border-white dark:border-slate-950 shadow"></span>
+              <h4 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">15:00 – Unwind <i class="fa-solid fa-moon text-[#FFB703] ml-1"></i></h4>
+              <p class="text-slate-500 dark:text-slate-400">Yoga, storytelling & team challenges to close the day on a high.</p>
+            </div>
+          </div>
+
+          <a href="#" class="inline-flex items-center gap-2 mt-8 text-primary font-heading font-bold hover:gap-3 transition-all">
+            Download Full Schedule <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 3. FEATURED PROGRAMS (Pricing cards, tabbed feel) -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Flexible Plans</p>
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4">Choose Your Summer Adventure</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Pick the program that fits your family. All plans include certified staff, insurance, and a ton of fun.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+        <!-- Plan 1 -->
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 flex flex-col hover:shadow-xl transition-shadow duration-300">
+          <div class="mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center text-2xl text-primary mb-4"><i class="fa-solid fa-sun"></i></div>
+            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white">Half Day</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Perfect for first-timers</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-heading font-bold text-primary">₹3,499</span>
+            <span class="text-slate-500 dark:text-slate-400 font-semibold">/ week</span>
+          </div>
+          <ul class="space-y-3 flex-1 mb-8">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 4 Hours Daily</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 5 Activities per week</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Snacks included</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Camp t-shirt & badge</li>
+          </ul>
+          <a href="signup.html" class="block text-center rounded-2xl border-2 border-primary text-primary font-heading font-bold py-3 hover:bg-primary hover:text-white transition-colors">Get Started</a>
+        </div>
+
+        <!-- Plan 2 (featured) -->
+        <div class="bg-secondary text-white rounded-3xl p-8 flex flex-col shadow-2xl shadow-secondary/30 relative overflow-hidden lg:scale-105">
+          <span class="absolute top-5 right-5 bg-[#FFB703] text-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
+          <div class="mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-rocket"></i></div>
+            <h3 class="text-2xl font-heading font-bold">Full Day</h3>
+            <p class="text-white/80 text-sm mt-1">Our best-value experience</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-heading font-bold">₹6,499</span>
+            <span class="text-white/80 font-semibold">/ week</span>
+          </div>
+          <ul class="space-y-3 flex-1 mb-8">
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> 8 Hours Daily</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> 10+ activities per week</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> Lunch & snacks included</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> Weekly field trips</li>
+            <li class="flex items-center gap-3 font-medium"><i class="fa-solid fa-check bg-white/20 p-1 rounded-full"></i> Progress report</li>
+          </ul>
+          <a href="signup.html" class="block text-center rounded-2xl bg-white text-secondary font-heading font-bold py-3 hover:bg-[#FFB703] hover:text-dark transition-colors">Choose Full Day</a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 flex flex-col hover:shadow-xl transition-shadow duration-300">
+          <div class="mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/15 flex items-center justify-center text-2xl text-secondary mb-4"><i class="fa-solid fa-bed"></i></div>
+            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white">Overnight Camp</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">The full adventure</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-heading font-bold text-primary">₹12,999</span>
+            <span class="text-slate-500 dark:text-slate-400 font-semibold">/ week</span>
+          </div>
+          <ul class="space-y-3 flex-1 mb-8">
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> 24/7 supervision</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> All meals included</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Bonfire & camp nights</li>
+            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300 font-medium"><i class="fa-solid fa-check text-secondary"></i> Adventure excursions</li>
+          </ul>
+          <a href="signup.html" class="block text-center rounded-2xl border-2 border-primary text-primary font-heading font-bold py-3 hover:bg-primary hover:text-white transition-colors">Go Overnight</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 7. MEET THE TEAM (Grid with numbered cards) -->
+  <section class="py-24 bg-slate-50 dark:bg-slate-900 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16">
+        <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Expert Mentors</p>
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4">The Faces Behind the Fun</h2>
+        <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Our counselors are certified, background-checked, and genuinely love what they do.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Member 1 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="relative h-64 overflow-hidden">
+            <img src="images\g1.avif" alt="Sarah Mitchell" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <h4 class="font-heading font-bold text-white text-xl">Sarah Mitchell</h4>
+              <p class="text-secondary text-sm font-semibold">Arts & Crafts Lead</p>
+            </div>
+          </div>
+          <div class="p-5 flex items-center justify-between">
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">8+ yrs experience</p>
+            <div class="flex gap-3 text-slate-400">
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="relative h-64 overflow-hidden">
+            <img src="images\m1.avif" alt="James Carter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <h4 class="font-heading font-bold text-white text-xl">James Carter</h4>
+              <p class="text-secondary text-sm font-semibold">Adventure Coach</p>
+            </div>
+          </div>
+          <div class="p-5 flex items-center justify-between">
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Certified coach</p>
+            <div class="flex gap-3 text-slate-400">
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="relative h-64 overflow-hidden">
+            <img src="images\g2.avif" alt="Amelia Rodriguez" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <h4 class="font-heading font-bold text-white text-xl">Amelia Rodriguez</h4>
+              <p class="text-secondary text-sm font-semibold">Music & Dance</p>
+            </div>
+          </div>
+          <div class="p-5 flex items-center justify-between">
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Performing arts expert</p>
+            <div class="flex gap-3 text-slate-400">
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="relative h-64 overflow-hidden">
+            <img src="images\m2.avif" alt="David Kim" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <h4 class="font-heading font-bold text-white text-xl">David Kim</h4>
+              <p class="text-secondary text-sm font-semibold">Science & STEM</p>
+            </div>
+          </div>
+          <div class="p-5 flex items-center justify-between">
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Engineer-mentor</p>
+            <div class="flex gap-3 text-slate-400">
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ (Accordion) -->
+  <section class="py-24 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <p class="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-3">Good to Know</p>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-6">Frequently Asked Questions</h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium mb-8">Everything parents usually ask before enrolling. Still curious? <a href="contact.html" class="text-primary font-semibold hover:underline">Reach out</a> anytime.</p>
+          <div class="bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-secondary/15 flex items-center justify-center text-2xl text-secondary"><i class="fa-solid fa-headset"></i></div>
+              <div>
+                <p class="font-heading font-bold text-dark dark:text-white">Have more questions?</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Call us at <span class="text-primary font-semibold">+91 98765 43210</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow" open>
+            <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-lg">
+              What age groups do you accept?
+              <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+            </summary>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">We welcome campers aged 5 to 15. Groups are split by age so activities, pace and supervision are always age-appropriate.</p>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-lg">
+              How safe is the camp?
+              <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+            </summary>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Safety comes first. We have a certified staff-to-child ratio, secure premises, first-aid on hand, and mandatory parent check-in/out.</p>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-lg">
+              Are meals and snacks included?
+              <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+            </summary>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Yes. Full-day and overnight plans include nutritious, kid-approved meals and daily snacks. We can accommodate most dietary needs on request.</p>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 open:shadow-lg transition-shadow">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-heading font-bold text-dark dark:text-white text-lg">
+              What should my child bring?
+              <span class="transition-transform group-open:rotate-45 text-primary"><i class="fa-solid fa-plus text-xl"></i></span>
+            </summary>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Comfortable clothes, a water bottle, sunscreen, and a hat. We provide all activity materials, equipment and safety gear.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA / ENROLLMENT BANNER -->
+  <section class="py-16 bg-white dark:bg-slate-950 transition-theme">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="bg-gradient-to-r from-primary to-secondary rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-16 text-center relative overflow-hidden shadow-2xl">
+        <i class="fa-solid fa-shapes absolute top-8 left-8 text-white/15 text-7xl -rotate-12"></i>
+        <i class="fa-solid fa-balloon absolute bottom-8 right-8 text-white/15 text-7xl rotate-12"></i>
+
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4">Ready to Make This Summer Unforgettable?</h2>
+          <p class="text-white/90 font-medium text-base sm:text-lg mb-8">Spots fill up fast! Secure your child's place today and give them a summer of adventure, friendship and growth.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4 w-full">
+            <a href="signup.html" class="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 rounded-2xl bg-white text-primary font-heading font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-xl">
+              <i class="fa-solid fa-user-plus"></i> Enroll Now
+            </a>
+            <a href="programs.html" class="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 rounded-2xl border-2 border-white/70 text-white font-heading font-bold text-base sm:text-lg hover:bg-white/10 transition-colors">
+              <i class="fa-solid fa-calendar"></i> View Programs
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

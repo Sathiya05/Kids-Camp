@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | KidsCamp</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B35',   // Vibrant Coral Orange
+                        secondary: '#2EC4B6', // Playful Turquoise
+                        dark: '#111111',      // Black Text
+                        light: '#FFFFFF',     // White Text
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        heading: ['Fredoka', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { -webkit-font-smoothing: antialiased; }
+        * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* RTL support */
+        html[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+        html[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
+        html[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+        html[dir="rtl"] .pl-4 { padding-left: 0 !important; padding-right: 1rem !important; }
+        html[dir="rtl"] .pr-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+        html[dir="rtl"] .border-r { border-right: none !important; border-left: 1px solid rgba(148, 163, 184, 0.1) !important; }
+
+        #sidebar { transition: transform 0.3s ease-in-out; }
+
+        /* Core Tab Switching Logic */
+        .page-content { display: none; }
+        .page-content.active { display: block; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* Primary Pulsing Dot */
+        .pulse-dot {
+            box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            animation: pulse-primary 2s infinite;
+        }
+        @keyframes pulse-primary {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans overflow-hidden selection:bg-primary selection:text-white">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300 opacity-0"></div>
+
+    <div class="flex h-screen overflow-hidden relative">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 flex-shrink-0 bg-white dark:bg-slate-900 shadow-2xl lg:shadow-none flex flex-col h-full border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+
+            <div class="px-6 pt-8 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
+                
+        <!-- Logo Section -->
+        <a href="index.html" class="relative z-[60] flex items-center gap-3 group shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-[#FF6B35] flex items-center justify-center shadow-lg shadow-[#FF6B35]/30 transition-transform group-hover:scale-105">
+                <i class="fa-solid fa-campground text-white text-lg"></i>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-xl font-black tracking-tight text-slate-800 dark:text-white transition-colors">
+                    Kids<span class="text-[#FF6B35]">Camp</span>
+                </span>
+                <span class="text-[9px] tracking-[0.15em] uppercase text-slate-500 dark:text-slate-400 font-bold leading-none mt-1">
+                     Summer & Activity
+                </span>
+            </div>
+        </a>
+                <button id="closeSidebarBtn" class="lg:hidden w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Utility Toggles -->
+            <div class="lg:hidden px-6 py-4 flex items-center gap-3 border-b border-slate-100 dark:border-slate-800">
+                <button id="mobileRtlToggle" class="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold text-xs hover:text-primary transition-colors">
+                    Toggle RTL
+                </button>
+                <button id="mobileDarkToggle" class="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold text-xs hover:text-primary transition-colors">
+                    <i id="mobileThemeIcon" class="fas fa-moon mr-1"></i> Theme
+                </button>
+            </div>
+
+            <nav id="sidebar-nav" class="mt-6 flex-1 px-4 space-y-2 overflow-y-auto no-scrollbar">
+                
+                <button onclick="showPage('overview', this)" class="nav-link w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl bg-primary text-white shadow-lg shadow-primary/30 transition-all">
+                    <i class="fas fa-chart-pie w-6 text-lg"></i>
+                    <span class="ml-3">Camp Overview</span>
+                </button>
+                
+                <button onclick="showPage('operations', this)" class="nav-link w-full flex items-center px-4 py-3.5 text-sm font-bold text-slate-600 dark:text-slate-400 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all">
+                    <i class="fas fa-clipboard-list w-6 text-lg"></i>
+                    <span class="ml-3">Daily Operations</span>
+                    <span class="ml-auto w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                </button>
+                
+                <button onclick="showPage('campers', this)" class="nav-link w-full flex items-center px-4 py-3.5 text-sm font-bold text-slate-600 dark:text-slate-400 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all">
+                    <i class="fas fa-users w-6 text-lg"></i>
+                    <span class="ml-3">Camper Roster</span>
+                </button>
+
+                <button onclick="showPage('supplies', this)" class="nav-link w-full flex items-center px-4 py-3.5 text-sm font-bold text-slate-600 dark:text-slate-400 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all">
+                    <i class="fas fa-boxes-stacked w-6 text-lg"></i>
+                    <span class="ml-3">Camp Supplies</span>
+                </button>
+
+                <div class="border-t border-slate-200 dark:border-slate-800 my-6"></div>
+
+                <a href="login.html" class="flex items-center px-4 py-3.5 text-sm font-bold text-slate-500 rounded-2xl hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-colors mt-2">
+                    <i class="fas fa-arrow-right-from-bracket w-6"></i>
+                    <span class="ml-3">Log Out</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- ================= MAIN CONTENT AREA ================= -->
+        <main class="flex-1 flex flex-col overflow-y-auto w-full relative bg-slate-50 dark:bg-slate-950">
+
+            <!-- Decorative background blurs -->
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none z-0 hidden lg:block"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none z-0 hidden lg:block"></div>
+
+            <header class="bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
+                <div>
+                    <h1 id="mainTitle" class="text-2xl md:text-3xl font-heading font-bold text-slate-900 dark:text-white">Camp Overview</h1>
+                </div>
+
+                <div class="flex items-center gap-3 md:gap-5">
+                     <div class="flex items-center gap-3 px-2 py-1.5 md:px-3 bg-white dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-primary transition-colors shadow-sm">
+                         <img src="images\m1.avif" alt="Admin Avatar" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
+                         <div class="hidden sm:block text-left pr-3">
+                             <p class="text-sm font-bold text-slate-900 dark:text-white leading-tight">David Carter</p>
+                             <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">Camp Director</p>
+                         </div>
+                     </div>
+ 
+                     <div class="hidden lg:flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-3 md:pl-5">
+                         <button id="desktopRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary transition-all shadow-sm">
+                             <span class="text-[10px] font-black uppercase">RTL</span>
+                         </button>
+                         <button id="desktopDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-secondary hover:border-secondary transition-all shadow-sm">
+                             <i id="desktopThemeIcon" class="fas fa-moon text-sm"></i>
+                         </button>
+                     </div>
+
+                     <button id="hamburgerBtn" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white shadow-sm hover:text-primary">
+                         <i class="fas fa-bars-staggered text-lg"></i>
+                     </button>
+                 </div>
+            </header>
+
+            <div class="p-6 lg:p-10 space-y-8 max-w-[1600px] mx-auto w-full relative z-10 flex-1">
+
+                <!-- 1. OVERVIEW PAGE -->
+                <div id="page-overview" class="page-content active space-y-8">
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                            <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none group-hover:bg-primary/20 transition-colors"></div>
+                            <div class="flex justify-between items-start mb-6 relative z-10">
+                                <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-primary"><i class="fas fa-users text-2xl"></i></div>
+                                <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">This Week</span>
+                            </div>
+                            <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Active Campers</p>
+                            <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">1,284</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                            <div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full blur-xl pointer-events-none group-hover:bg-secondary/20 transition-colors"></div>
+                            <div class="flex justify-between items-start mb-6 relative z-10">
+                                <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-secondary"><i class="fas fa-palette text-2xl"></i></div>
+                                <span class="text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">Today</span>
+                            </div>
+                            <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Ongoing Activities</p>
+                            <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">12</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                            <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#FFB703]/10 rounded-full blur-xl pointer-events-none group-hover:bg-[#FFB703]/20 transition-colors"></div>
+                            <div class="flex justify-between items-start mb-6 relative z-10">
+                                <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-[#FFB703]"><i class="fas fa-file-medical text-2xl"></i></div>
+                                <span class="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Pending</span>
+                            </div>
+                            <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Forms to Review</p>
+                            <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">4</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                            <div class="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 rounded-full blur-xl pointer-events-none group-hover:bg-red-500/20 transition-colors"></div>
+                            <div class="flex justify-between items-start mb-6 relative z-10">
+                                <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-red-500"><i class="fas fa-boxes-stacked text-2xl"></i></div>
+                                <span class="text-xs font-bold text-red-500 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full"><i class="fas fa-triangle-exclamation mr-1"></i> Low Stock</span>
+                            </div>
+                            <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Supply Alerts</p>
+                            <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">3</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                        
+                        <!-- Map/Activities Area -->
+                        <div class="xl:col-span-2 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-8 flex flex-col shadow-sm">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Live Camp Map</h3>
+                                <button onclick="showPage('operations', document.querySelectorAll('#sidebar-nav button')[1])" class="text-sm font-bold text-secondary hover:underline">View Full Schedule</button>
+                            </div>
+                            <div class="relative w-full h-[400px] rounded-3xl overflow-hidden group shadow-inner">
+                                <img src="images\img16.avif" alt="Camp Map" class="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-secondary/10 mix-blend-multiply"></div>
+                                
+                                <div class="absolute top-[30%] left-[25%] flex flex-col items-center">
+                                    <div class="w-5 h-5 bg-primary rounded-full pulse-dot border-4 border-white dark:border-slate-900 shadow-lg"></div>
+                                    <span class="mt-2 px-3 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur text-slate-900 dark:text-white text-xs font-bold rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">Sports Field (Active)</span>
+                                </div>
+                                <div class="absolute top-[60%] right-[30%] flex flex-col items-center">
+                                    <div class="w-5 h-5 bg-secondary rounded-full border-4 border-white dark:border-slate-900 shadow-lg"></div>
+                                    <span class="mt-2 px-3 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur text-slate-900 dark:text-white text-xs font-bold rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">Art Studio (Preparing)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Center -->
+                        <div class="bg-gradient-to-br from-slate-900 to-black rounded-[2.5rem] border border-slate-800 p-8 shadow-xl text-white flex flex-col relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-48 h-48 bg-primary/20 blur-3xl rounded-full pointer-events-none"></div>
+                            <div class="absolute bottom-0 left-0 w-48 h-48 bg-secondary/20 blur-3xl rounded-full pointer-events-none"></div>
+                            
+                            <h3 class="text-2xl font-heading font-bold mb-8 relative z-10 flex items-center gap-3">Action Center <span class="px-2 py-1 bg-primary text-white text-[10px] rounded-full">3 New</span></h3>
+                            
+                            <div class="space-y-4 relative z-10 flex-1">
+                                <div class="p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all cursor-pointer">
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">New Registration</p>
+                                    <p class="text-sm font-medium">Sarah Miller requested enrollment for Arts & Crafts.</p>
+                                </div>
+                                <div class="p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-red-500/50 transition-all cursor-pointer">
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1 text-red-400">Stock Alert</p>
+                                    <p class="text-sm font-medium">First Aid Kits are below minimum threshold.</p>
+                                </div>
+                                <div class="p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-secondary/50 transition-all cursor-pointer">
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Staff Meeting</p>
+                                    <p class="text-sm font-medium">Weekly counselor check-in at 4:00 PM today.</p>
+                                </div>
+                            </div>
+                            <button class="w-full mt-8 py-4 bg-primary text-white rounded-xl text-sm font-bold shadow-[0_4px_15px_-3px_rgba(255,107,53,0.4)] hover:scale-105 transition-transform">
+                                Review All Actions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. DAILY OPERATIONS PAGE -->
+                <div id="page-operations" class="page-content space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+                        <h2 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Daily Operations</h2>
+                        <div class="flex gap-2">
+                            <button class="px-5 py-2.5 bg-primary text-white text-xs font-bold rounded-xl border border-primary shadow-sm">Sports Camp</button>
+                            <button class="px-5 py-2.5 bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 text-xs font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:text-secondary transition-colors">Arts & Crafts</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+                            <h3 class="text-xl font-heading font-bold text-slate-900 dark:text-white mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">Today's Schedule: Sports Camp</h3>
+                            
+                            <div class="relative border-l-2 border-slate-100 dark:border-slate-800 ml-4 space-y-8 pl-8">
+                                
+                                <div class="relative">
+                                    <div class="absolute -left-[41px] top-1 w-5 h-5 bg-secondary rounded-full border-4 border-white dark:border-slate-900 shadow-sm"></div>
+                                    <p class="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">09:00 AM - Complete</p>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Morning Warmups</h4>
+                                    <p class="text-sm text-slate-500 font-medium mt-1">Main Field A • Lead: Coach Sarah</p>
+                                </div>
+
+                                <div class="relative">
+                                    <div class="absolute -left-[41px] top-1 w-5 h-5 bg-primary rounded-full border-4 border-white dark:border-slate-900 shadow-sm pulse-dot"></div>
+                                    <p class="text-[10px] text-primary font-bold uppercase tracking-widest mb-1">11:30 AM - In Progress</p>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Soccer Drills</h4>
+                                    <p class="text-sm text-slate-500 font-medium mt-1">Field B • Lead: Coach Mike</p>
+                                </div>
+
+                                <div class="relative">
+                                    <div class="absolute -left-[41px] top-1 w-5 h-5 bg-slate-200 dark:bg-slate-700 rounded-full border-4 border-white dark:border-slate-900 shadow-sm"></div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mb-1">01:00 PM - Upcoming</p>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Lunch Break</h4>
+                                    <p class="text-sm text-slate-500 font-medium mt-1">Main Cafeteria • All Campers</p>
+                                </div>
+
+                                <div class="relative">
+                                    <div class="absolute -left-[41px] top-1 w-5 h-5 bg-slate-200 dark:bg-slate-700 rounded-full border-4 border-white dark:border-slate-900 shadow-sm"></div>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mb-1">02:30 PM - Upcoming</p>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Relay Races</h4>
+                                    <p class="text-sm text-slate-500 font-medium mt-1">Track & Field • Lead: Coach Sarah</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-100 dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 overflow-hidden relative shadow-sm min-h-[400px] group">
+                            <img src="images\img7.avif" alt="Activity Area" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <div class="absolute top-6 left-6 right-6 flex justify-between">
+                                <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur px-5 py-3 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
+                                    <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Current Location</p>
+                                    <p class="text-base font-bold text-slate-900 dark:text-white">Field B</p>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-6 left-6 text-white">
+                                <h3 class="font-heading font-bold text-2xl">Soccer Drills Active</h3>
+                                <p class="text-sm font-medium opacity-90">32 Campers • 4 Counselors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. CAMPER ROSTER PAGE -->
+                <div id="page-campers" class="page-content space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+                        <h2 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Camper Roster</h2>
+                        <div class="flex gap-3 w-full sm:w-auto">
+                            <div class="relative flex-1 sm:w-64">
+                                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" placeholder="Search campers..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-secondary font-medium shadow-sm">
+                            </div>
+                            <button class="px-6 py-3 bg-secondary text-white rounded-xl text-xs font-bold uppercase tracking-widest shadow-[0_4px_15px_-3px_rgba(46,196,182,0.4)] hover:scale-105 transition-transform shrink-0 flex items-center">
+                                <i class="fas fa-file-export mr-2"></i> Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Desktop table (hidden below lg) -->
+                    <div class="hidden lg:block bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                        <div class="overflow-x-auto w-full">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 dark:bg-slate-950/50 border-b border-slate-200 dark:border-slate-800">
+                                        <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Camper Details</th>
+                                        <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Age Group</th>
+                                        <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Program</th>
+                                        <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Status</th>
+                                        <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm text-slate-700 dark:text-slate-300">
+                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+                                        <td class="p-6 flex items-center gap-4">
+                                            <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
+                                                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-slate-900 dark:text-white text-base">Tommy Miller</p>
+                                                <p class="text-xs font-medium text-slate-500 mt-0.5">Parent ID: #1024</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-6 font-bold text-slate-600 dark:text-slate-400">10 Years</td>
+                                        <td class="p-6 font-bold text-slate-900 dark:text-white">Sports Camp</td>
+                                        <td class="p-6">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100/50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800">
+                                                Enrolled
+                                            </span>
+                                        </td>
+                                        <td class="p-6 text-right">
+                                            <button class="p-2 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary hover:bg-primary/10 transition-colors inline-flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+                                        <td class="p-6 flex items-center gap-4">
+                                            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600 flex items-center justify-center">
+                                                <i class="fa-solid fa-child-dress text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-slate-900 dark:text-white text-base">Emma Miller</p>
+                                                <p class="text-xs font-medium text-slate-500 mt-0.5">Parent ID: #1024</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-6 font-bold text-slate-600 dark:text-slate-400">7 Years</td>
+                                        <td class="p-6 font-bold text-slate-900 dark:text-white">Arts & Crafts</td>
+                                        <td class="p-6">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB703]/10 text-[#FFB703] text-xs font-bold border border-[#FFB703]/20">
+                                                Pending Forms
+                                            </span>
+                                        </td>
+                                        <td class="p-6 text-right">
+                                            <button class="p-2 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary hover:bg-primary/10 transition-colors inline-flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+                                        <td class="p-6 flex items-center gap-4">
+                                            <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
+                                                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-slate-900 dark:text-white text-base">Noah Wilson</p>
+                                                <p class="text-xs font-medium text-slate-500 mt-0.5">Parent ID: #1088</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-6 font-bold text-slate-600 dark:text-slate-400">12 Years</td>
+                                        <td class="p-6 font-bold text-slate-900 dark:text-white">Coding Camp</td>
+                                        <td class="p-6">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100/50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800">
+                                                Enrolled
+                                            </span>
+                                        </td>
+                                        <td class="p-6 text-right">
+                                            <button class="p-2 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary hover:bg-primary/10 transition-colors inline-flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Mobile & tablet camper cards (lg:hidden) -->
+                    <div class="lg:hidden grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
+                                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="font-bold text-slate-900 dark:text-white text-base truncate">Tommy Miller</p>
+                                    <p class="text-xs font-medium text-slate-500 mt-0.5">Parent ID: #1024</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">10 Years</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold">Sports Camp</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100/50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800">
+                                <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Enrolled
+                            </span>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600 flex items-center justify-center">
+                                    <i class="fa-solid fa-child-dress text-primary"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="font-bold text-slate-900 dark:text-white text-base truncate">Emma Miller</p>
+                                    <p class="text-xs font-medium text-slate-500 mt-0.5">Parent ID: #1024</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">7 Years</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold">Arts & Crafts</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB703]/10 text-[#FFB703] text-xs font-bold border border-[#FFB703]/20">
+                                <div class="w-1.5 h-1.5 rounded-full bg-[#FFB703] animate-pulse"></div> Pending Forms
+                            </span>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors sm:col-span-2">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
+                                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="font-bold text-slate-900 dark:text-white text-base truncate">Noah Wilson</p>
+                                    <p class="text-xs font-medium text-slate-500 mt-0.5">Parent ID: #1088</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">12 Years</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold">Coding Camp</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100/50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800">
+                                <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Enrolled
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. INVENTORY PAGE -->
+                <div id="page-supplies" class="page-content space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+                        <h2 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Camp Supplies & Gear</h2>
+                        <button class="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white rounded-xl text-xs font-bold shadow-sm hover:border-primary transition-colors uppercase tracking-widest">
+                            Order Supplies
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-secondary hover:-translate-y-1 transition-all">
+                            <div class="w-28 h-28 mb-6 rounded-3xl bg-slate-100 dark:bg-slate-800 overflow-hidden shadow-inner">
+                                <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=300&q=80" alt="Soccer Balls" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-heading font-bold text-slate-900 dark:text-white text-xl">Soccer Balls</h3>
+                            <p class="text-xs text-slate-500 mb-6 font-bold uppercase tracking-widest">Sports Equipment</p>
+                            <div class="w-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 flex justify-between items-center mb-6 border border-slate-100 dark:border-slate-800">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">In Stock</span>
+                                <span class="text-xl font-black text-slate-900 dark:text-white">24 Units</span>
+                            </div>
+                            <button class="w-full py-3.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-white rounded-xl text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Manage Stock</button>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-secondary hover:-translate-y-1 transition-all">
+                            <div class="w-28 h-28 mb-6 rounded-3xl bg-slate-100 dark:bg-slate-800 overflow-hidden shadow-inner">
+                                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=300&q=80" alt="Paint Sets" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-heading font-bold text-slate-900 dark:text-white text-xl">Watercolor Sets</h3>
+                            <p class="text-xs text-slate-500 mb-6 font-bold uppercase tracking-widest">Art Supplies</p>
+                            <div class="w-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 flex justify-between items-center mb-6 border border-slate-100 dark:border-slate-800">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">In Stock</span>
+                                <span class="text-xl font-black text-slate-900 dark:text-white">45 Packs</span>
+                            </div>
+                            <button class="w-full py-3.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-white rounded-xl text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Manage Stock</button>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col items-center text-center relative overflow-hidden group hover:border-red-500 hover:-translate-y-1 transition-all">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-red-500"></div>
+                            <div class="w-28 h-28 mb-6 rounded-3xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-4xl text-red-500 shadow-inner">
+                                <i class="fas fa-medkit"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-slate-900 dark:text-white text-xl">First Aid Kits</h3>
+                            <p class="text-xs text-slate-500 mb-6 font-bold uppercase tracking-widest">Safety Gear</p>
+                            <div class="w-full bg-red-50 dark:bg-red-900/20 rounded-2xl p-4 flex justify-between items-center mb-6 border border-red-100 dark:border-red-900/30">
+                                <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Low Stock</span>
+                                <span class="text-xl font-black text-red-500">2 Kits</span>
+                            </div>
+                            <button class="w-full py-3.5 bg-red-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-red-500/30 hover:bg-red-600 transition-colors">Reorder Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        /* ===============================
+           TAB SWITCHING LOGIC (Robust)
+        ================================ */
+        function showPage(pageId, element) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update Header Title
+            const titles = {
+                'overview': 'Camp Overview',
+                'operations': 'Daily Operations',
+                'campers': 'Camper Roster',
+                'supplies': 'Camp Supplies'
+            };
+            document.getElementById('mainTitle').innerText = titles[pageId] || 'Dashboard';
+
+            // Reset Nav Styling
+            document.querySelectorAll('#sidebar-nav .nav-link').forEach(link => {
+                link.classList.remove('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+                link.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-800', 'hover:text-primary');
+            });
+
+            // Set Active Nav Styling
+            if(element) {
+                element.classList.remove('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-800', 'hover:text-primary');
+                element.classList.add('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+            }
+
+            // Close sidebar on mobile after clicking
+            if (window.innerWidth < 1024 && typeof closeSidebar === 'function') {
+                closeSidebar();
+            }
+        }
+
+        /* ===============================
+           SIDEBAR, THEME & RTL LOGIC
+        ================================ */
+        const htmlElement = document.documentElement;
+        
+        const desktopThemeBtn = document.getElementById("desktopDarkToggle");
+        const desktopThemeIcon = document.getElementById("desktopThemeIcon");
+        const desktopRtlBtn = document.getElementById("desktopRtlToggle");
+        
+        const mobileThemeBtn = document.getElementById("mobileDarkToggle");
+        const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+        const mobileRtlBtn = document.getElementById("mobileRtlToggle");
+        
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+        // Theme initialization
+        function applyTheme() {
+            let isDark = localStorage.getItem('kidscamp-dark') === 'true';
+            if (isDark) {
+                htmlElement.classList.add('dark');
+                if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-sun text-secondary text-sm';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun mr-1 text-secondary';
+            } else {
+                htmlElement.classList.remove('dark');
+                if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-moon text-sm';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon mr-1';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.setItem('kidscamp-dark', isDark);
+            applyTheme();
+        }
+
+        if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        // RTL Logic
+        function toggleRTL() {
+            const currentDir = htmlElement.getAttribute("dir");
+            const newDir = currentDir === "rtl" ? "ltr" : "rtl";
+            htmlElement.setAttribute("dir", newDir);
+            localStorage.setItem("kidscamp-rtl", newDir);
+        }
+
+        if (desktopRtlBtn) desktopRtlBtn.addEventListener('click', toggleRTL);
+        if (mobileRtlBtn) mobileRtlBtn.addEventListener('click', toggleRTL);
+
+        // Sidebar Logic for Mobile
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.remove('opacity-100');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            document.body.style.overflow = '';
+        }
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+
+        // INITIALIZE ON LOAD
+        window.addEventListener('load', () => {
+            applyTheme();
+            const savedRTL = localStorage.getItem("kidscamp-rtl");
+            if (savedRTL) htmlElement.setAttribute("dir", savedRTL);
+            
+            // Explicitly highlight the Overview button on page load
+            const firstButton = document.querySelector('#sidebar-nav button:first-child');
+            if(firstButton) showPage('overview', firstButton);
+        });
+    </script>
+</body>
+</html>
