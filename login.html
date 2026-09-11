@@ -7,12 +7,10 @@
     <link rel="icon" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     
-    
-    
     <!-- Google Fonts for KidsCamp Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -58,21 +56,9 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-500 h-[100dvh] w-full overflow-hidden flex flex-col relative selection:bg-primary selection:text-white">
 
     <!-- Absolute Dedicated Header (Logo & Minimalist Toggles) -->
-    <header class="absolute top-0 left-0 w-full px-4 sm:px-6 lg:px-10 py-3 sm:py-6 flex justify-between items-center z-50">
+    <header class="absolute top-0 left-0 w-full px-4 sm:px-6 lg:px-10 py-3 sm:py-6 flex justify-end items-center z-50">
         <!-- Brand Logo -->
-        <a href="index.html" class="relative z-[60] flex items-center gap-3 group shrink-0">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-[#ff8c61] flex items-center justify-center shadow-lg shadow-primary/30 transition-transform group-hover:scale-105">
-                <i class="fa-solid fa-campground text-white text-xl"></i>
-            </div>
-            <div class="flex flex-col">
-                <span class="text-2xl font-heading font-black tracking-tight text-slate-900 dark:text-white transition-colors">
-                    Kids<span class="text-primary">Camp</span>
-                </span>
-                <span class="text-[9px] tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 font-bold leading-none mt-0.5">
-                     Summer & Activity
-                </span>
-            </div>
-        </a>
+
 
         <!-- Minimalist Utility Icons -->
         <div class="flex items-center gap-4 sm:gap-5 text-slate-400">
@@ -99,13 +85,12 @@
                 <!-- Left Side: Image Showcase (Hidden on Mobile/Tablet) -->
                 <div class="hidden lg:block lg:w-1/2 relative overflow-hidden bg-white dark:bg-black/80 h-full p-3 pl-3 py-3">
                     <div class="w-full h-full rounded-[2.5rem] overflow-hidden relative group">
-                        <img src="images\kids.avif" alt="Kids at Camp" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-1000"> 
+                        <img src="images/kids.avif" alt="Kids at Camp" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-1000"> 
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div> 
-                        
                         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
                         
                         <div class="absolute bottom-0 left-0 w-full p-12"> 
-                            <div class="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center shadow-lg mb-6 transform ">
+                            <div class="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center shadow-lg mb-6">
                                 <i class="fa-solid fa-face-smile-beam text-white text-xl"></i>
                             </div>
                             <h2 class="text-4xl font-heading font-bold text-white mb-4 leading-tight">The Best Summer<br>Ever Awaits!</h2> 
@@ -115,43 +100,53 @@
                 </div>
 
                 <!-- Right Side: Login Form -->
-                <div class="w-full lg:w-1/2 p-6 sm:p-10 lg:p-14 flex flex-col justify-center items-center h-full w-full bg-white dark:bg-slate-900 relative"> 
+                <div class="w-full lg:w-1/2 p-6 sm:p-10 lg:p-14 flex flex-col justify-center items-center h-full bg-white dark:bg-slate-900 relative"> 
                     
                     <div class="w-full max-w-sm flex flex-col justify-center h-full relative z-10"> 
                         
-                        <!-- Mobile/Tablet Logo (Visible only on smaller screens) -->
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#ff8c61] flex items-center justify-center shadow-lg shadow-primary/30 mb-6 lg:hidden mx-auto shrink-0 transform rotate-3">
-                            <i class="fa-solid fa-campground text-white text-2xl"></i> 
-                        </div>
+                        <!-- Centered Logo -->
+                            <a href="index.html" class="relative z-[60] flex items-center justify-center gap-3 group shrink-0 w-full">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-[#ff8c61] flex items-center justify-center shadow-lg shadow-primary/30 transition-transform group-hover:scale-105">
+                <i class="fa-solid fa-campground text-white text-xl"></i>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-2xl font-heading font-black tracking-tight text-slate-900 dark:text-white transition-colors">
+                    Kids<span class="text-primary">Camp</span>
+                </span>
+                <span class="text-[9px] tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 font-bold leading-none mt-0.5">
+                     Summer & Activity
+                </span>
+            </div>
+        </a><br>
 
-                        <div class="text-center lg:text-left mb-6 sm:mb-8 shrink-0"> 
-                            <h2 class="text-2xl sm:text-3xl font-heading font-bold text-slate-900 dark:text-white mb-2">Welcome Back! </h2>
+                        <!-- Centered Welcome Header -->
+                        <div class="text-center mb-6 shrink-0"> 
+                            <h2 class="text-2xl sm:text-3xl font-heading font-bold text-slate-900 dark:text-white mb-1">Welcome Back!</h2>
                             <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Please enter your details to access the portal.</p>
                         </div>
 
                         <!-- Form -->
-                        <!-- Action directs to the previously created user dashboard -->
-                        <form action="user.html" class="space-y-4 sm:space-y-5 w-full shrink-0">
+                        <form action="user.html" class="space-y-4 w-full shrink-0">
                             
                             <!-- Email Input -->
-                            <div class="space-y-1.5 sm:space-y-2"> 
+                            <div class="space-y-1.5"> 
                                 <label for="email" class="block text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 text-left pl-1">Email Address</label>
                                 <div class="relative group"> 
                                     <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none transition-colors group-focus-within:text-primary">
                                         <i class="fa-regular fa-envelope text-slate-400 group-focus-within:text-primary transition-colors"></i>
                                     </div>
-                                    <input type="email" id="email" class="w-full pl-12 pr-4 py-3 sm:py-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium text-sm shadow-sm" placeholder="parent@example.com" required>
+                                    <input type="email" id="email" class="w-full pl-12 pr-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium text-sm shadow-sm" placeholder="parent@example.com" required>
                                 </div>
                             </div>
 
                             <!-- Password Input -->
-                            <div class="space-y-1.5 sm:space-y-2"> 
+                            <div class="space-y-1.5"> 
                                 <label for="password" class="block text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 text-left pl-1">Password</label>
                                 <div class="relative group"> 
                                     <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                                         <i class="fa-solid fa-lock text-slate-400 group-focus-within:text-primary transition-colors"></i> 
                                     </div>
-                                    <input type="password" id="password" class="w-full pl-12 pr-12 py-3 sm:py-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium text-sm shadow-sm" placeholder="••••••••" required>
+                                    <input type="password" id="password" class="w-full pl-12 pr-12 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium text-sm shadow-sm" placeholder="••••••••" required>
                                     <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-5 flex items-center text-slate-400 hover:text-primary transition-colors focus:outline-none">
                                         <i class="fa-regular fa-eye text-sm" id="eyeIcon"></i> 
                                     </button>
@@ -171,30 +166,30 @@
                             </div>
 
                             <!-- Submit Button -->
-                            <button type="submit" class="w-full py-3.5 sm:py-4 mt-2 rounded-2xl bg-primary text-white font-bold text-sm hover:scale-[1.02] shadow-[0_8px_20px_-6px_rgba(255,107,53,0.5)] transition-all duration-300 flex justify-center items-center gap-2">
-                                Log In <i class="fa-solid fa-arrow-right-to-bracket"></i> 
+                            <button type="submit" class="w-full py-3.5 mt-2 rounded-2xl bg-primary text-white font-bold text-sm hover:scale-[1.02] shadow-[0_8px_20px_-6px_rgba(255,107,53,0.5)] transition-all duration-300 flex justify-center items-center gap-2">
+                                Log In <i class="fa-solid fa-arrow-right-to-bracket text-xs"></i> 
+                            </button>
                         </form>
 
                         <!-- Social Login Divider -->
-                        <div class="relative flex items-center justify-center my-6 sm:my-8 shrink-0"> 
-                            <div class="absolute inset-0 flex items-center"> 
-                                <div class="w-full border-t border-slate-200 dark:border-slate-800"></div> 
-                            </div>
-                            <span class="relative bg-white dark:bg-slate-900 px-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Or continue with</span>
+                        <div class="relative flex items-center justify-center my-5 shrink-0">
+                            <div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
                         </div>
 
-                        <!-- Social Buttons -->
-                        <div class="grid grid-cols-2 gap-4 shrink-0">
-                            <button class="flex items-center justify-center gap-3 py-3 border-2 border-slate-100 dark:border-slate-800 rounded-2xl text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-200 dark:hover:border-slate-700 transition-all shadow-sm">
-                                <i class="fa-brands fa-google text-red-500 text-lg"></i> <span class="hidden sm:inline">Google</span>
+                        <!-- Social Buttons (Side-by-side) -->
+                        <div class="flex flex-row items-center justify-center gap-3 w-full shrink-0">
+                            <button class="flex-1 flex items-center justify-center gap-2 rounded-2xl border-2 border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-200 dark:hover:border-slate-700 transition-all shadow-sm">
+                                <i class="fa-brands fa-google text-red-500 text-base"></i> 
+                                <span>Google</span>
                             </button>
-                            <button class="flex items-center justify-center gap-3 py-3 border-2 border-slate-100 dark:border-slate-800 rounded-2xl text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-200 dark:hover:border-slate-700 transition-all shadow-sm">
-                                <i class="fa-brands fa-apple text-slate-900 dark:text-white text-lg"></i> <span class="hidden sm:inline">Apple</span>
+                            <button class="flex-1 flex items-center justify-center gap-2 rounded-2xl border-2 border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-200 dark:hover:border-slate-700 transition-all shadow-sm">
+                                <i class="fa-brands fa-apple text-slate-900 dark:text-white text-base"></i> 
+                                <span>Apple</span>
                             </button>
                         </div>
 
                         <!-- Signup Link -->
-                        <p class="text-center mt-6 sm:mt-8 text-sm text-slate-600 dark:text-slate-400 font-medium shrink-0">
+                        <p class="text-center mt-5 text-sm text-slate-600 dark:text-slate-400 font-medium shrink-0">
                             New to KidsCamp? <a href="signup.html" class="font-bold text-primary hover:text-orange-600 hover:underline transition-colors">Create an account</a>
                         </p>
                     </div>

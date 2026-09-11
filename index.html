@@ -138,7 +138,7 @@
             <img src="images\bg1.avif" alt="Kids playing outside" class="w-full h-full object-cover">
           </div>
           <!-- Floating Element -->
-          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full flex flex-col items-center justify-center text-white font-heading font-bold text-xl shadow-xl transform rotate-12">
+          <div class="absolute -bottom-6 -right-3 w-32 h-32 bg-primary rounded-full flex flex-col items-center justify-center text-white font-heading font-bold text-xl shadow-xl transform rotate-12">
             <span>Learn.</span>
             <span>Play.</span>
             <span>Grow.</span>
@@ -191,54 +191,218 @@
         <h2 class="text-4xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-4 relative inline-block">
           Exciting Activities
         </h2>
-        <p class="text-slate-500 dark:text-slate-400 font-medium mt-6 max-w-2xl mx-auto">Explore a world of fun and learning! Check out our dedicated <a href="programs.html" class="text-secondary font-bold hover:underline">Programs Page</a> for the full list of our summer adventures.</p>
+        <p class="text-slate-500 dark:text-slate-400 font-medium mt-6 max-w-2xl mx-auto">From sports to science, coding to crafts — 25+ hands-on activities that keep kids moving, creating and learning all summer. Explore the full lineup on our <a href="programs.html" class="text-secondary font-bold hover:underline">Programs Page</a>.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <!-- Activity 1 -->
-        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
-            <i class="fa-solid fa-volleyball"></i>
-          </div>
-          <h3 class="font-bold text-dark dark:text-white mb-2">Sports</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Football, Basketball, Tennis </p>
-        </div>
-        
-        <!-- Activity 2 -->
-        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
-            <i class="fa-solid fa-palette"></i>
-          </div>
-          <h3 class="font-bold text-dark dark:text-white mb-2">Arts & Crafts</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Painting, DIY, Pottery & Handicrafts</p>
-        </div>
+      <div class="flex flex-col gap-16 lg:gap-24">
 
-        <!-- Activity 3 -->
-        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
-            <i class="fa-solid fa-laptop-code"></i>
+        <!-- Activity 1: Sports -->
+        <article class="group grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="relative h-64 sm:h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow md:order-1">
+            <img src="images\Sports Day.avif" alt="Kids playing football and sports at camp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-white dark:bg-slate-800 text-primary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Sports</span>
+              <span class="bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 5-15</span>
+            </div>
           </div>
-          <h3 class="font-bold text-dark dark:text-white mb-2">Coding</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Robotics, Programming & Tech</p>
-        </div>
+          <div class="md:order-2">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl mb-5 transform group-hover:rotate-12 transition-transform">
+              <i class="fa-solid fa-volleyball"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-dark dark:text-white mb-3">Multi-Sports</h3>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">Football, basketball, tennis, cricket & athletics with certified coaches who turn every session into a fun team game — teamwork, fitness & sportsmanship included.</p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-primary"></i> Certified Coaches</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-primary"></i> Team Games & Fitness</span>
+            </div>
+          </div>
+        </article>
 
-        <!-- Activity 4 -->
-        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
-            <i class="fa-solid fa-person-swimming"></i>
+        <!-- Activity 2: Arts & Crafts -->
+        <article class="group grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="relative h-64 sm:h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow md:order-2">
+            <img src="images\img9.avif" alt="Kids painting and doing arts and crafts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-white dark:bg-slate-800 text-primary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Creative</span>
+              <span class="bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 5-15</span>
+            </div>
           </div>
-          <h3 class="font-bold text-dark dark:text-white mb-2">Swimming</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Water Games, Pool Safety & Races</p>
-        </div>
+          <div class="md:order-1">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl mb-5 transform group-hover:rotate-12 transition-transform">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-dark dark:text-white mb-3">Arts & Crafts</h3>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">Painting, sketching, clay modeling, pottery & DIY crafts — ending in a grand gallery show where every child showcases their masterpiece.</p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-primary"></i> Grand Gallery Show</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-primary"></i> All Materials Provided</span>
+            </div>
+          </div>
+        </article>
 
-        <!-- Activity 5 -->
-        <div class="group bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-4 transform group-hover:rotate-12 transition-transform">
-            <i class="fa-solid fa-leaf"></i>
+        <!-- Activity 3: Coding & STEM -->
+        <article class="group grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="relative h-64 sm:h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow md:order-1">
+            <img src="images\Science Lab.webp" alt="Kids doing science experiments in a lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-white dark:bg-slate-800 text-primary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">STEM</span>
+              <span class="bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 8-15</span>
+            </div>
           </div>
-          <h3 class="font-bold text-dark dark:text-white mb-2">Nature Exploration</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Outdoor Trails, Botany & Scavenger </p>
+          <div class="md:order-2">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary text-2xl mb-5 transform group-hover:rotate-12 transition-transform">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-dark dark:text-white mb-3">Coding & Science</h3>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">Hands-on experiments, robotics, programming & tech projects that make science feel like magic — every builder leaves with a project they created themselves.</p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-secondary"></i> Robotics & Coding</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-secondary"></i> Take-Home Projects</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Activity 4: Swimming -->
+        <article class="group grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="relative h-64 sm:h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow md:order-2">
+            <img src="images\img7.avif" alt="Kids having fun at the swimming pool" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-white dark:bg-slate-800 text-secondary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Aquatics</span>
+              <span class="bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 6-15</span>
+            </div>
+          </div>
+          <div class="md:order-1">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary text-2xl mb-5 transform group-hover:rotate-12 transition-transform">
+              <i class="fa-solid fa-person-swimming"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-dark dark:text-white mb-3">Swimming & Water Fun</h3>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">Structured swim lessons, water games, pool safety & friendly races — supervised by lifeguards so kids splash, learn and stay safe all day long.</p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-secondary"></i> Lifeguard Supervised</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-secondary"></i> Pool Safety Skills</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Activity 5: Music & Dance -->
+        <article class="group grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="relative h-64 sm:h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow md:order-1">
+            <img src="images\Music & Dance.avif" alt="Kids dancing and performing on stage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-white dark:bg-slate-800 text-primary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Performance</span>
+              <span class="bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 5-12</span>
+            </div>
+          </div>
+          <div class="md:order-2">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl mb-5 transform group-hover:rotate-12 transition-transform">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-dark dark:text-white mb-3">Music & Dance</h3>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">Singing, dance routines, drama & stagecraft with music — all leading up to a spectacular grand camp performance for parents at the end of every week.</p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-primary"></i> Weekly Stage Show</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-primary"></i> Drama & Stagecraft</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Activity 6: Adventure & Nature -->
+        <article class="group grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div class="relative h-64 sm:h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow md:order-2">
+            <img src="images\Adventure.avif" alt="Kids exploring nature outdoors" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-white dark:bg-slate-800 text-secondary font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Outdoor</span>
+              <span class="bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 8-15</span>
+            </div>
+          </div>
+          <div class="md:order-1">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary text-2xl mb-5 transform group-hover:rotate-12 transition-transform">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-dark dark:text-white mb-3">Adventure & Nature</h3>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">Trekking, obstacle courses, treasure hunts, botany trails & scavenger games — outdoor adventures that build courage, curiosity and a love for the wild.</p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-secondary"></i> Outdoor Treks</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-dark dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-full"><i class="fa-solid fa-check text-secondary"></i> Team Challenges</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3B. AGE GROUPS & TRACKS -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 transition-theme border-y border-slate-200 dark:border-slate-800">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+        <div>
+          <span class="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">Find the Right Fit</span>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold text-dark dark:text-white mb-2">Age Groups & Tracks</h2>
+          <p class="text-slate-500 dark:text-slate-400 font-medium max-w-2xl">Campers are grouped by age so every activity, pace and level of supervision is perfectly matched to where your child is — no one is left behind or held back.</p>
         </div>
+        <a href="age.html" class="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+          View All Tracks <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Juniors 5-7 -->
+        <article class="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 dark:border-slate-800">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images\Little Explorers.avif" alt="Junior campers aged 5-7 exploring" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 5-7</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Juniors · Little Explorers</h3>
+            <p class="text-xs text-secondary font-bold mb-3">Play & Explore</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Guided arts, music, storytime, gentle sports & parachute games. One counselor for every 5 campers — all about first-time fun and safe discovery.</p>
+          </div>
+        </article>
+
+        <!-- Middlers 8-10 -->
+        <article class="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 dark:border-slate-800">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images\Curious Creators.avif" alt="Middler campers aged 8-10 doing hands-on activities" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 8-10</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Middlers · Curious Creators</h3>
+            <p class="text-xs text-secondary font-bold mb-3">Build & Create</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Hands-on skill builders: beginner coding & robotics, science labs, art and swimming — campers start creating real projects and gain confidence.</p>
+          </div>
+        </article>
+
+        <!-- Seniors 11-13 -->
+        <article class="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 dark:border-slate-800">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images\img10.avif" alt="Senior campers aged 11-13 working on projects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-primary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 11-13</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Seniors · Rising Leaders</h3>
+            <p class="text-xs text-secondary font-bold mb-3">Lead & Excel</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Advanced STEM, competitive sports, performing arts & team challenges. Campers take turns leading groups, solving real problems & mentoring younger kids.</p>
+          </div>
+        </article>
+
+        <!-- Teens 14-15 -->
+        <article class="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 dark:border-slate-800">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images\Independent Pathfinders.avif" alt="Teen campers aged 14-15 on an adventure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-secondary text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full shadow">Ages 14-15</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-dark dark:text-white mb-1">Teens ·  Pathfinders</h3>
+            <p class="text-xs text-secondary font-bold mb-3">Discover & Thrive</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Independence-focused: advanced coding, adventure treks, entrepreneurship workshops & outdoor survival — real-world skills for the next chapter.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>

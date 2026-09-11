@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
 
         <!-- Desktop Navigation -->
-        <!-- Changed from xl:flex to lg:flex to ensure it shows on standard laptops, added flex-1 to perfectly center it -->
-        <div id="desktopNav" class="hidden lg:flex items-center justify-center text-[15px] font-bold flex-1 gap-2 lg:gap-4 xl:gap-6">
+        <!-- Shown only at xl+ (1280px+); tablets/portrait screens below 1280px get the hamburger menu -->
+        <div id="desktopNav" class="hidden xl:flex items-center justify-center text-[15px] font-bold flex-1 gap-4 2xl:gap-6">
           
           <!-- Home Dropdown -->
           <div class="relative group/home">
@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <!-- Desktop Action Buttons -->
-        <!-- Changed to lg:flex to match the nav links -->
-        <div class="relative z-[60] hidden lg:flex items-center justify-end gap-4 shrink-0">
+        <!-- Shown only at xl+ (1280px+) -->
+        <div class="relative z-[60] hidden xl:flex items-center justify-end gap-4 shrink-0">
           
           <!-- Utility Toggles -->
           <div class="flex items-center bg-slate-100/80 dark:bg-slate-800/80 rounded-full p-1 border border-slate-200 dark:border-slate-700">
@@ -76,17 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
           
           <!-- Auth Buttons - Polished and Professional -->
           <div class="flex items-center justify-center gap-3">
-              <a href="signup.html" class="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FF6B35] text-white font-bold text-sm hover:bg-[#e85d04] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(255,107,53,0.5)]">
+              <a href="login.html" class="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FF6B35] text-white font-bold text-sm hover:bg-[#e85d04] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(255,107,53,0.5)]">
                   <span><i class="fa-regular fa-user"></i></span> Log In
               </a>
-              <a href="signup.html" class="flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2EC4B6] text-white font-bold text-sm hover:bg-[#25a99d] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(46,196,182,0.5)]">
-                  Sign Up
-              </a>
+             
           </div>
         </div>
 
         <!-- Mobile Menu Toggle Button -->
-        <div class="relative z-[60] lg:hidden flex items-center h-full">
+        <div class="relative z-[60] xl:hidden flex items-center h-full">
           <button id="mobileBtn" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none hover:text-[#FF6B35] transition-colors">
             <i id="mobileIcon" class="fa-solid fa-bars-staggered text-lg"></i>
           </button>
@@ -96,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   <!-- Mobile Menu Sidebar -->
-  <div id="mobileMenu" class="fixed inset-0 w-full h-[100dvh] bg-white/95 dark:bg-slate-950/95 backdrop-blur-md z-[50] flex-col px-6 pt-28 pb-20 lg:hidden hidden overflow-y-auto">
+  <div id="mobileMenu" class="fixed inset-0 w-full h-[100dvh] bg-white/95 dark:bg-slate-950/95 backdrop-blur-md z-[50] flex-col px-6 pt-28 pb-20 xl:hidden hidden overflow-y-auto">
     <div id="mobileNavLinks" class="flex flex-col gap-2 text-base font-bold">
       
       <!-- Mobile Home Dropdown -->
@@ -143,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="grid grid-cols-2 gap-3">
         <a href="login.html" class="w-full py-4 flex items-center justify-center rounded-2xl bg-orange-50 dark:bg-slate-800 text-[#FF6B35] font-bold text-sm hover:bg-[#FF6B35] hover:text-white transition-colors">Log In</a>
-        <a href="signup.html" class="w-full py-4 flex items-center justify-center rounded-2xl bg-[#FF6B35] text-white font-bold text-sm shadow-[0_8px_20px_-6px_rgba(255,107,53,0.5)]">Sign Up</a>
       </div>
     </div>
   </div>
@@ -181,8 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
       color: #FF6B35 !important;
     }
     
-    /* Ensure no wrapping issues on medium desktops */
-    @media (min-width: 1024px) and (max-width: 1280px) {
+    /* Ensure no wrapping issues on xl desktops */
+    @media (min-width: 1280px) and (max-width: 1536px) {
       #desktopNav {
         font-size: 14px;
         gap: 0.25rem;
