@@ -78,7 +78,7 @@
     </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans overflow-hidden selection:bg-primary selection:text-white">
+<body class="bg-slate-100 dark:bg-slate-950 text-dark dark:text-slate-200 font-sans overflow-hidden selection:bg-primary selection:text-white">
 
     <!-- Mobile Sidebar Overlay -->
     <div id="overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300 opacity-0"></div>
@@ -86,7 +86,7 @@
     <div class="flex h-screen overflow-hidden relative">
 
         <!-- ================= SIDEBAR ================= -->
-        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 flex-shrink-0 bg-white dark:bg-slate-900 shadow-2xl lg:shadow-none flex flex-col h-full border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 flex-shrink-0 bg-slate-50 dark:bg-slate-900 shadow-2xl lg:shadow-none flex flex-col h-full border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
 
             <div class="px-6 pt-8 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
                 
@@ -152,7 +152,7 @@
         </aside>
 
         <!-- ================= MAIN CONTENT AREA ================= -->
-        <main class="flex-1 flex flex-col overflow-y-auto w-full relative bg-slate-50 dark:bg-slate-950">
+        <main class="flex-1 flex flex-col overflow-y-auto w-full relative bg-slate-100 dark:bg-slate-950">
 
             <!-- Decorative background blurs -->
             <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none z-0 hidden lg:block"></div>
@@ -164,7 +164,7 @@
                 </div>
 
                 <div class="flex items-center gap-3 md:gap-5">
-                     <div class="flex items-center gap-3 px-2 py-1.5 md:px-3 bg-white dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-primary transition-colors shadow-sm">
+                     <div class="flex items-center gap-3 px-2 py-1.5 md:px-3 bg-slate-50 dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-primary transition-colors shadow-sm">
                          <img src="images\m1.avif" alt="Admin Avatar" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
                          <div class="hidden sm:block text-left pr-3">
                              <p class="text-sm font-bold text-slate-900 dark:text-white leading-tight">David Carter</p>
@@ -173,15 +173,15 @@
                      </div>
  
                      <div class="hidden lg:flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-3 md:pl-5">
-                         <button id="desktopRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary transition-all shadow-sm">
+                         <button id="desktopRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary transition-all shadow-sm">
                              <span class="text-[10px] font-black uppercase">RTL</span>
                          </button>
-                         <button id="desktopDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-secondary hover:border-secondary transition-all shadow-sm">
+                         <button id="desktopDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-secondary hover:border-secondary transition-all shadow-sm">
                              <i id="desktopThemeIcon" class="fas fa-moon text-sm"></i>
                          </button>
                      </div>
 
-                     <button id="hamburgerBtn" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white shadow-sm hover:text-primary">
+                     <button id="hamburgerBtn" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white shadow-sm hover:text-primary">
                          <i class="fas fa-bars-staggered text-lg"></i>
                      </button>
                  </div>
@@ -194,7 +194,7 @@
                     
                     <!-- Stats Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
                             <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none group-hover:bg-primary/20 transition-colors"></div>
                             <div class="flex justify-between items-start mb-6 relative z-10">
                                 <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-primary"><i class="fas fa-users text-2xl"></i></div>
@@ -204,7 +204,7 @@
                             <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">1,284</p>
                         </div>
 
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
                             <div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full blur-xl pointer-events-none group-hover:bg-secondary/20 transition-colors"></div>
                             <div class="flex justify-between items-start mb-6 relative z-10">
                                 <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-secondary"><i class="fas fa-palette text-2xl"></i></div>
@@ -214,7 +214,7 @@
                             <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">12</p>
                         </div>
 
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
                             <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#FFB703]/10 rounded-full blur-xl pointer-events-none group-hover:bg-[#FFB703]/20 transition-colors"></div>
                             <div class="flex justify-between items-start mb-6 relative z-10">
                                 <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-[#FFB703]"><i class="fas fa-file-medical text-2xl"></i></div>
@@ -224,7 +224,7 @@
                             <p class="text-4xl font-heading font-black text-slate-900 dark:text-white">4</p>
                         </div>
 
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
                             <div class="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 rounded-full blur-xl pointer-events-none group-hover:bg-red-500/20 transition-colors"></div>
                             <div class="flex justify-between items-start mb-6 relative z-10">
                                 <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-red-500"><i class="fas fa-boxes-stacked text-2xl"></i></div>
@@ -238,7 +238,7 @@
                     <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
                         
                         <!-- Map/Activities Area -->
-                        <div class="xl:col-span-2 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-8 flex flex-col shadow-sm">
+                        <div class="xl:col-span-2 bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-8 flex flex-col shadow-sm">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Live Camp Map</h3>
                                 <button onclick="showPage('operations', document.querySelectorAll('#sidebar-nav button')[1])" class="text-sm font-bold text-secondary hover:underline">View Full Schedule</button>
@@ -292,12 +292,12 @@
                         <h2 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Daily Operations</h2>
                         <div class="flex gap-2">
                             <button class="px-5 py-2.5 bg-primary text-white text-xs font-bold rounded-xl border border-primary shadow-sm">Sports Camp</button>
-                            <button class="px-5 py-2.5 bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 text-xs font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:text-secondary transition-colors">Arts & Crafts</button>
+                            <button class="px-5 py-2.5 bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 text-xs font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:text-secondary transition-colors">Arts & Crafts</button>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
                             <h3 class="text-xl font-heading font-bold text-slate-900 dark:text-white mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">Today's Schedule: Sports Camp</h3>
                             
                             <div class="relative border-l-2 border-slate-100 dark:border-slate-800 ml-4 space-y-8 pl-8">
@@ -356,7 +356,7 @@
                         <div class="flex gap-3 w-full sm:w-auto">
                             <div class="relative flex-1 sm:w-64">
                                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                                <input type="text" placeholder="Search campers..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-secondary font-medium shadow-sm">
+                                <input type="text" placeholder="Search campers..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-secondary font-medium shadow-sm">
                             </div>
                             <button class="px-6 py-3 bg-secondary text-white rounded-xl text-xs font-bold uppercase tracking-widest shadow-[0_4px_15px_-3px_rgba(46,196,182,0.4)] hover:scale-105 transition-transform shrink-0 flex items-center">
                                 <i class="fas fa-file-export mr-2"></i> Export
@@ -365,11 +365,11 @@
                     </div>
 
                     <!-- Desktop table (hidden below lg) -->
-                    <div class="hidden lg:block bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                    <div class="hidden lg:block bg-slate-50 dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
                         <div class="overflow-x-auto w-full">
                             <table class="w-full text-left border-collapse">
                                 <thead>
-                                    <tr class="bg-slate-50 dark:bg-slate-950/50 border-b border-slate-200 dark:border-slate-800">
+                                    <tr class="bg-slate-100 dark:bg-slate-950/50 border-b border-slate-200 dark:border-slate-800">
                                         <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Camper Details</th>
                                         <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Age Group</th>
                                         <th class="p-6 text-xs font-bold uppercase tracking-widest text-slate-500">Program</th>
@@ -378,7 +378,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm text-slate-700 dark:text-slate-300">
-                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
                                         <td class="p-6 flex items-center gap-4">
                                             <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
                                                 <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
@@ -399,7 +399,7 @@
                                             <button class="p-2 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary hover:bg-primary/10 transition-colors inline-flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
                                         </td>
                                     </tr>
-                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
                                         <td class="p-6 flex items-center gap-4">
                                             <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600 flex items-center justify-center">
                                                 <i class="fa-solid fa-child-dress text-primary"></i>
@@ -420,7 +420,7 @@
                                             <button class="p-2 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary hover:bg-primary/10 transition-colors inline-flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
                                         </td>
                                     </tr>
-                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+                                    <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
                                         <td class="p-6 flex items-center gap-4">
                                             <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
                                                 <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
@@ -448,7 +448,7 @@
 
                     <!-- Mobile & tablet camper cards (lg:hidden) -->
                     <div class="lg:hidden grid sm:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors">
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
                                     <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
@@ -466,7 +466,7 @@
                                 <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Enrolled
                             </span>
                         </div>
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors">
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600 flex items-center justify-center">
                                     <i class="fa-solid fa-child-dress text-primary"></i>
@@ -484,7 +484,7 @@
                                 <div class="w-1.5 h-1.5 rounded-full bg-[#FFB703] animate-pulse"></div> Pending Forms
                             </span>
                         </div>
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors sm:col-span-2">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-6 cursor-pointer hover:border-secondary transition-colors sm:col-span-2">
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 shadow-sm border border-slate-300 dark:border-slate-600">
                                     <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-full h-full object-cover">
@@ -509,40 +509,40 @@
                 <div id="page-supplies" class="page-content space-y-6">
                     <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
                         <h2 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">Camp Supplies & Gear</h2>
-                        <button class="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white rounded-xl text-xs font-bold shadow-sm hover:border-primary transition-colors uppercase tracking-widest">
+                        <button class="px-6 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white rounded-xl text-xs font-bold shadow-sm hover:border-primary transition-colors uppercase tracking-widest">
                             Order Supplies
                         </button>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                         
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-secondary hover:-translate-y-1 transition-all">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-secondary hover:-translate-y-1 transition-all">
                             <div class="w-28 h-28 mb-6 rounded-3xl bg-slate-100 dark:bg-slate-800 overflow-hidden shadow-inner">
                                 <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=300&q=80" alt="Soccer Balls" class="w-full h-full object-cover">
                             </div>
                             <h3 class="font-heading font-bold text-slate-900 dark:text-white text-xl">Soccer Balls</h3>
                             <p class="text-xs text-slate-500 mb-6 font-bold uppercase tracking-widest">Sports Equipment</p>
-                            <div class="w-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 flex justify-between items-center mb-6 border border-slate-100 dark:border-slate-800">
+                            <div class="w-full bg-slate-100 dark:bg-slate-800/50 rounded-2xl p-4 flex justify-between items-center mb-6 border border-slate-100 dark:border-slate-800">
                                 <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">In Stock</span>
                                 <span class="text-xl font-black text-slate-900 dark:text-white">24 Units</span>
                             </div>
                             <button class="w-full py-3.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-white rounded-xl text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Manage Stock</button>
                         </div>
 
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-secondary hover:-translate-y-1 transition-all">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center text-center group hover:border-secondary hover:-translate-y-1 transition-all">
                             <div class="w-28 h-28 mb-6 rounded-3xl bg-slate-100 dark:bg-slate-800 overflow-hidden shadow-inner">
                                 <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=300&q=80" alt="Paint Sets" class="w-full h-full object-cover">
                             </div>
                             <h3 class="font-heading font-bold text-slate-900 dark:text-white text-xl">Watercolor Sets</h3>
                             <p class="text-xs text-slate-500 mb-6 font-bold uppercase tracking-widest">Art Supplies</p>
-                            <div class="w-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 flex justify-between items-center mb-6 border border-slate-100 dark:border-slate-800">
+                            <div class="w-full bg-slate-100 dark:bg-slate-800/50 rounded-2xl p-4 flex justify-between items-center mb-6 border border-slate-100 dark:border-slate-800">
                                 <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">In Stock</span>
                                 <span class="text-xl font-black text-slate-900 dark:text-white">45 Packs</span>
                             </div>
                             <button class="w-full py-3.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-white rounded-xl text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Manage Stock</button>
                         </div>
 
-                        <div class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col items-center text-center relative overflow-hidden group hover:border-red-500 hover:-translate-y-1 transition-all">
+                        <div class="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col items-center text-center relative overflow-hidden group hover:border-red-500 hover:-translate-y-1 transition-all">
                             <div class="absolute top-0 left-0 w-full h-1.5 bg-red-500"></div>
                             <div class="w-28 h-28 mb-6 rounded-3xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-4xl text-red-500 shadow-inner">
                                 <i class="fas fa-medkit"></i>
